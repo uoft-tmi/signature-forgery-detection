@@ -1,5 +1,5 @@
 """
-Split Data into Train, Test, Val
+Split Data into Train & Validation Tensorflow Dataframe
 """
 
 import tensorflow as tf
@@ -15,8 +15,6 @@ DATA_DIR = pathlib.Path('signatures_combined')
 
 paths = len(list(DATA_DIR.glob('*.png')))
 print(paths)
-# paths = [str(path).encode("utf-8") for path in DATA_DIR.glob('*.png')]
-
 
 # Split into train
 train_ds = tf.keras.utils.image_dataset_from_directory(
@@ -28,16 +26,6 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     image_size=(IMG_HEIGHT, IMG_WIDTH),
     batch_size=BATCH_SIZE,
 )
-
-# # Split into test
-# test_ds = tf.keras.utils.image_dataset_from_directory(
-#     DATA_DIR,
-#     validation_split=0.15,
-#     subset="testing",
-#     seed=1107,
-#     image_size=(IMG_HEIGHT, IMG_WIDTH),
-#     batch_size=BATCH_SIZE,
-# )
 
 # Split into validation
 val_ds = tf.keras.utils.image_dataset_from_directory(

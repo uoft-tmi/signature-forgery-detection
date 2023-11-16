@@ -1,5 +1,5 @@
 """
-Split into 3 folders
+Split into 3 folders: training, testing, validation from original whole signature data
 """
 import os
 import random
