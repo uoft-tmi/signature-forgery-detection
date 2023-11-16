@@ -14,8 +14,8 @@ def image_to_grayscale(image_dir: str) -> Image:
 
 
 def image_to_bitmap(image: Image) -> Image:
-    """Used for testing purposes to convert oen iamge to bitmap"""
-    bitmap_image = image.point(lambda p: 1 if p > THRESHOLD else 0)
+    """Used for testing purposes to convert one iamge to bitmap"""
+    bitmap_image = image.point(lambda p: 0 if p < THRESHOLD else 255, 'L')
     bitmap_image.convert('1')
     return bitmap_image
 
