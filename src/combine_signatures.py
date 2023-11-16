@@ -4,6 +4,8 @@ Combine original and forged signature image data into one folder
 import os
 import shutil
 
+# Paths to directories
+# paths should be changed
 real_sig_dir = 'signatures/full_org'
 fake_sig_dir = 'signatures/full_forg'
 
