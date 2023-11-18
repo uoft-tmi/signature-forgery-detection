@@ -78,10 +78,16 @@ header a:hover {
     color: #000;
  }
 
+ footer img, footer p {
+    margin-right: 1rem;
+    margin-left: 1rem;
+ }
+
  footer > p {
     color: #ffffff;
     font-size: 18px;
     font-weight: 700;
+    text-align: center;
  }
 
  .img-container {
@@ -100,6 +106,10 @@ header a:hover {
     text-align: center;
     margin-top: 48px; 
     margin-bottom: 8px;
+}
+
+h2 {
+    text-align: center;
 }
 
 p {
@@ -145,24 +155,13 @@ p {
     display: default;
 } */
 
- @media screen and (max-width: 700px) {
-    #pdf {width: 450px;}
-}
-
 @media screen and (max-width: 390px) {
-    #pdf {width: 250px;}
 }
 
-@media screen and (max-width: 480px) {
-    input {
-        width: calc(100vw - 1rem);
-        margin-top: 8px;
-        margin-bottom: 18px;
-    }
-    #consent {
-        margin-bottom: 8px;
-    }
-    #submit {
-        margin-top: 32px
+@media screen and (max-width: 820px) {
+    footer {
+        justify-content: center;
+        flex-direction: column;
+        height: 16rem;
     }
 }
