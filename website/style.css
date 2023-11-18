@@ -3,7 +3,6 @@
 }
 
 body {
-    background-color: #F7EFE5;
     font-family: Inter, Arial, Helvetica, sans-serif;
     color: #7743DB;
 }
@@ -16,9 +15,6 @@ body {
  }
 
  .incontainer {
-    background-color: #F7EFE5;
-    /* min-height: 100vh; */
-    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +54,7 @@ body {
     margin: 1rem;
     font-size: 20px;
     text-decoration: none;
-    font-weight: 550;
+    font-weight: 600;
  }
 
  #left {
@@ -169,6 +165,7 @@ p {
 /* gradient for about page Process subsection */
 .body_gradient {
     background-image: linear-gradient(#f7efe5, white);
+    width: 100%;
 }
   
 /* about page subtitles */
@@ -187,4 +184,5 @@ p {
     margin-left: 10%;
     font-family: 'Inter';
     font-size: 24px;
+    margin-bottom: 10rem;
 }
