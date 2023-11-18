@@ -165,3 +165,26 @@ p {
         height: 16rem;
     }
 }
+
+/* gradient for about page Process subsection */
+.body_gradient {
+    background-image: linear-gradient(#f7efe5, white);
+}
+  
+/* about page subtitles */
+.body_title {
+    color: #7743DB;
+    margin-left: 5%;
+    padding-top: 50px;
+    font-weight: 5000;
+    font-family: 'Inter';
+    font-size: 48px;
+}
+
+/* about page paragraph text */
+.body_text {
+    color: #7743DB;
+    margin-left: 10%;
+    font-family: 'Inter';
+    font-size: 24px;
+}
