@@ -36,17 +36,26 @@ def convert_bitmap(images: list[Image]) -> list[Image]:
     bitmap_images = []
     for gray_image in images:
         bitmap_image = gray_image.point(lambda p: 0 if p < THRESHOLD else 255, 'L')
-        bitmap_image.convert('1')
+        bitmap_image = bitmap_image.convert('1')
         bitmap_images.append(bitmap_image)
 
     return bitmap_images
 
 
+def resize(images: list[Image], dimensions: tuple) -> None:
+    """Resizes all the given images in a list"""
+    for i in range(0, len(images)):
+        image = images[i]
+        images[i] = image.resize(dimensions)
+
+
 if __name__ == '__main__':
+    dimensions = (250, 250) # dimensions for the images, can be changed
     directory = ''  # where the image files are located
     image_path = ''  # where the bitmap images will be stored
     gray_images = convert_grayscale(directory)
     bitmap_images = convert_bitmap(gray_images)
+    resize(bitmap_images, dimensions)
     save_images = True
 
     if not os.path.exists(image_path):
