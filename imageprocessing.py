@@ -6,20 +6,6 @@ import os
 THRESHOLD = 128
 
 
-def image_to_grayscale(image_dir: str) -> Image:
-    """Used for testing purposes to convert one image to grayscale"""
-    image = Image.open(image_dir)
-    gray_image = ImageOps.grayscale(image)
-    return gray_image
-
-
-def image_to_bitmap(image: Image) -> Image:
-    """Used for testing purposes to convert one iamge to bitmap"""
-    bitmap_image = image.point(lambda p: 0 if p < THRESHOLD else 255, 'L')
-    bitmap_image.convert('1')
-    return bitmap_image
-
-
 def convert_grayscale(directory: str) -> list[Image]:
     """Converts all images in the given directory into gray scale"""
     converted_images = []
