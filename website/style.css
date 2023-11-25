@@ -112,45 +112,6 @@ p {
     font-size: 16px;
 }
 
-/* #button {
-    background-color: white;
-    border: 2px solid #007EA8;
-    width: 126px;
-    height: 34px;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    color: #007EA8;
-    font-size: 18px;
-    justify-content: center;
-    display: inline-flex;
-    align-items: center;
-    font-weight: 700;
-    margin-bottom: 128px;
-}
-
-#button:hover {
-    width: 126px;
-    height: 34px;
-    border-radius: 4px;
-    border: 2px solid white;
-    background-color: #007EA8;
-    justify-content: center;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    font-weight: 700;
-}
-
-#button-container:hover #hoverlearnmore{
-    display: default;
-} */
-
 @media screen and (max-width: 390px) {
 }
 
@@ -166,6 +127,10 @@ p {
 .body_gradient {
     background-image: linear-gradient(#f7efe5, white);
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
   
 /* about page subtitles */
@@ -186,3 +151,84 @@ p {
     font-size: 24px;
     margin-bottom: 10rem;
 }
+
+video {
+    margin-bottom: 3rem;
+}
+
+.button {
+    background-color: white;
+    border: 2px solid #7743DB;
+    width: 126px;
+    height: 34px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    color: #7743DB;
+    font-size: 18px;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 128px;
+}
+
+.button:hover {
+    width: 126px;
+    height: 34px;
+    border-radius: 4px;
+    border: 2px solid white;
+    background-color: #7743DB;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#bottom {
+    margin-bottom: 10rem;
+}
+
+.uploadOuter {
+    align-self: flex-start;
+    text-align: center;
+    margin-left: 5rem;
+    padding: 20px;
+    strong {
+      padding: 0 10px
+    }
+  }
+  .dragBox {
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    line-height: 95px;
+    color: #999;
+    border: 2px dashed #ccc;
+    display: inline-block;
+    transition: transform 0.3s;
+    input[type="file"] {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+  .draging {
+    transform: scale(1.1);
+  }
+  #preview {
+    text-align: center;
+    img {
+      max-width: 100%
+    }
+  }
