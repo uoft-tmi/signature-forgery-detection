@@ -1,0 +1,6 @@
+**/train_labels.npy
+**/train_imgs.npy
+**/val_labels.npy
+**/val_imgs.npy
+**/test_labels.npy
+**/test_images.npy
