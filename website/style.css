@@ -1,4 +1,5 @@
- html, body{
+<<<<<<< HEAD
+html, body{
     margin: 0;
 }
 
@@ -167,7 +168,7 @@ p {
     background-image: linear-gradient(#f7efe5, white);
     width: 100%;
 }
-  
+
 /* about page subtitles */
 .body_title {
     color: #7743DB;
@@ -185,4 +186,23 @@ p {
     font-family: 'Inter';
     font-size: 24px;
     margin-bottom: 10rem;
+}
+
+.button {
+  background-color: white;
+  color: #7743DB;
+  font-size: 15px;
+  padding: 5px 60px;
+  border-radius: 4px;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.checkboxes {
+  margin-left: 50%;
+}
+
+.textmargin {
+  margin-left: 50%;
 }
