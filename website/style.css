@@ -1,4 +1,4 @@
- html, body{
+html, body{
     margin: 0;
 }
 
@@ -132,7 +132,7 @@ p {
     justify-content: center;
     flex-direction: column;
 }
-  
+
 /* about page subtitles */
 .body_title {
     color: #7743DB;
@@ -231,4 +231,12 @@ video {
     img {
       max-width: 100%
     }
+  }
+
+  .checkboxes {
+    margin-left: 50%;
+  }
+  
+  .textmargin {
+    margin-left: 50%;
   }
