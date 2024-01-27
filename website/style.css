@@ -171,7 +171,6 @@ video {
     display: inline-flex;
     align-items: center;
     font-weight: 700;
-    margin-bottom: 128px;
 }
 
 .button:hover {
@@ -240,4 +239,8 @@ video {
   
   .textmargin {
     margin-left: 50%;
+  }
+  
+  #try {
+    margin-bottom: 32px;
   }
