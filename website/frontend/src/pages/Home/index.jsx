@@ -43,12 +43,13 @@ const Home = () => {
 
                 <div>
                     <div
+                        id='preview-container'
                         onDragOver={handleDragOver}
                         onDrop={handleDrop}
                         onClick={openFileInput}>
                         {previewImage ? 
                         (
-                            <img src={previewImage} alt='Preview'></img>
+                            <img src={previewImage} id='preview' alt='Preview'></img>
                         ) :
                         (
                             <p>Drag & Drop or Browse</p>

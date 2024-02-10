@@ -244,3 +244,20 @@ video {
   #try {
     margin-bottom: 32px;
   }
+
+  #preview {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  #preview-container {
+    background-color: #F7EFE6;
+    width: 23.75rem;
+    height: 20rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
