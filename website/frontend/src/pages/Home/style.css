@@ -55,11 +55,12 @@ body {
     margin: 1rem;
     font-size: 20px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
  }
 
  #left {
     margin-left: 24px;
+    font-weight: 800;
  }
 
  #right {
@@ -69,6 +70,7 @@ body {
 .current-link {
     color: #ba62fe;
     font-weight: 750;
+    text-decoration: underline;
 }
 
 header a:hover {
@@ -273,7 +275,7 @@ video {
     width: 100%;
   }
 
-  #left {
+  #left-div {
     display: flex;
     flex-direction: column;
     justify-content: center;

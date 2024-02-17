@@ -43,7 +43,7 @@ const Home = () => {
                 </div>
 
                 <div id='jump'>
-                    <div id='left'>
+                    <div id='left-div'>
                         <div
                             id='preview-container'
                             onDragOver={handleDragOver}
