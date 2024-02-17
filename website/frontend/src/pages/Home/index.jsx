@@ -35,6 +35,7 @@ const Home = () => {
                 <div className = "body_gradient">
                 <h1>Sign of the Times</h1>
                 <h2>Detecting Forged Signatures with Machine Learning</h2>
+                <p id='intro'>Intro</p>
                 <video width="720" height="480" controls>
                     <source src="" type="video/mp4"></source>
                     Your browser does not support the video tag.
@@ -70,15 +71,16 @@ const Home = () => {
                         <button type = "button" className = "button">Validate</button>
                     </div>
 
-                    <div id="bottom">
+                    <div id='right-div'>
+                        <p>**Instructions**</p>
                         <label>
-                            <input type = "checkbox" className = "checkboxes" /> Model 1
+                            <input type = "checkbox" className = "checkboxes" /> <span>Model 1</span>
                         </label>
                         <label>
-                            <input type = "checkbox" className = "checkboxes" /> Model 2
+                            <input type = "checkbox" className = "checkboxes" /> <span>Model 2</span>
                         </label>
                         <label>
-                            <input type = "checkbox" className = "checkboxes" /> Select All
+                            <input type = "checkbox" className = "checkboxes" /> <span>Select All</span>
                         </label>
                         <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
                     </div>

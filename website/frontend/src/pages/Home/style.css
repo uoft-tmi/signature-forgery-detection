@@ -29,7 +29,7 @@ body {
 
  header {
     background-color: #ffffff;
-    height: 70px;
+    height: 7.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,8 +59,9 @@ body {
  }
 
  #left {
-    margin-left: 24px;
+    margin-left: 2.8rem;
     font-weight: 800;
+    font-size: 2rem;
  }
 
  #right {
@@ -100,19 +101,28 @@ header a:hover {
  }
 
  h1 {
-    font-weight: bold;
-    font-size: 48px;
+    font-size: 2rem;
     text-align: center;
-    margin-top: 48px; 
+    margin-top: 7.5rem; 
     margin-bottom: 8px;
+    font-weight: 800;
 }
 
 h2 {
     text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 p {
     font-size: 16px;
+    font-weight: 600;
+}
+
+#intro {
+  margin-top: 2.875rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 390px) {
@@ -156,7 +166,7 @@ p {
 }
 
 video {
-    margin-bottom: 3rem;
+    margin-bottom: 1.563rem;
 }
 
 .button {
@@ -191,56 +201,32 @@ video {
     font-weight: 700;
 }
 
-.uploadOuter {
-    align-self: flex-start;
-    text-align: center;
-    margin-left: 5rem;
-    padding: 20px;
-    strong {
-      padding: 0 10px
-    }
-  }
-  .dragBox {
-    width: 250px;
-    height: 100px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    font-weight: bold;
-    line-height: 95px;
-    color: #999;
-    border: 2px dashed #ccc;
-    display: inline-block;
-    transition: transform 0.3s;
-    input[type="file"] {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-      top: 0;
-      left: 0;
-    }
-  }
-  .draging {
-    transform: scale(1.1);
-  }
-  #preview {
-    text-align: center;
-    img {
-      max-width: 100%
-    }
+  .checkboxes {
+    /* margin-left: 50%; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 0.938rem;
+    height: 0.938rem;
+    border: 2px solid #7743DB;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle; 
   }
 
-  .checkboxes {
-    margin-left: 50%;
+  input[type="checkbox"]:checked {
+    background-color: #7743DB;
   }
   
   .textmargin {
-    margin-left: 50%;
+    /* margin-left: 50%; */
+    color: #333333;
+    font-size: 1.5rem;
+    font-weight: 400;
   }
   
   #try {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 
   #preview {
@@ -283,10 +269,32 @@ video {
     gap: 1.625rem;
   }
 
+  #right-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
   #jump {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 10rem;
+    width: 100%;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
   }
+
+  label {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  label span {
+    vertical-align: middle; 
+    font-weight: 800;
+  }
+
+  

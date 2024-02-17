@@ -27,7 +27,7 @@ const Layout = () => {
     }, [location.pathname]);
 
     return <body>
-        <div class="page-container">
+        <div className="page-container">
             <header>
             <p id="left">Signature Forgery Detection</p>
             <div id="right">
@@ -37,7 +37,7 @@ const Layout = () => {
             </header>
             <Outlet />
             <footer>
-            <div class="img-container">
+            <div className="img-container">
                 <img src="TMI.png" alt='TMI logo'/>
             </div>
             <p>Made with love by Angela, Evelyn, Dian and co. with Trustworthy Machine Intelligence</p>
