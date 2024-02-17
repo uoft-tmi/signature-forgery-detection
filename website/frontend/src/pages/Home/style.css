@@ -189,10 +189,6 @@ video {
     font-weight: 700;
 }
 
-#bottom {
-    margin-bottom: 10rem;
-}
-
 .uploadOuter {
     align-self: flex-start;
     text-align: center;
@@ -260,4 +256,34 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  #dragndrop-container {
+    height: 5rem;
+    width: 6.875rem;
+  }
+
+  #dragndrop {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+    
+  #dragndrop-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  #left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #jump {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rem;
   }

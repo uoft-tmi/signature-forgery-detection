@@ -41,26 +41,34 @@ const Home = () => {
                 <a href="#jump" className="button" id="try">Try it out!</a>
                 </div>
 
-                <div>
-                    <div
-                        id='preview-container'
-                        onDragOver={handleDragOver}
-                        onDrop={handleDrop}
-                        onClick={openFileInput}>
-                        {previewImage ? 
-                        (
-                            <img src={previewImage} id='preview' alt='Preview'></img>
-                        ) :
-                        (
-                            <p>Drag & Drop or Browse</p>
-                        )}
-                        <input 
-                            type='file' 
-                            style={{display: 'none'}}
-                            onChange={handleFileChange}
-                            ref={hiddenFileInput}></input>
+                <div id='jump'>
+                    <div id='left'>
+                        <div
+                            id='preview-container'
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
+                            onClick={openFileInput}>
+                            {previewImage ? 
+                            (
+                                <img src={previewImage} id='preview' alt='Preview'></img>
+                            ) :
+                            (
+                                <>
+                                    <div id='dragndrop-container'>
+                                        <img src='drag-and-drop-icon.png' alt='Drag and drop' id='dragndrop-image'></img>
+                                    </div>
+                                    <p id='dragndrop'>Drag & Drop or Browse</p>
+                                </>
+                            )}
+                            <input 
+                                type='file' 
+                                style={{display: 'none'}}
+                                onChange={handleFileChange}
+                                ref={hiddenFileInput}></input>
+                        </div>
+                        <button type = "button" className = "button">Validate</button>
                     </div>
-                    <button type = "button" className = "button">Validate</button>
+
                     <div id="bottom">
                         <label>
                             <input type = "checkbox" className = "checkboxes" /> Model 1
