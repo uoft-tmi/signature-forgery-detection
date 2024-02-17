@@ -1,5 +1,6 @@
 import './style.css'
 import { useState, useRef } from 'react';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [previewImage, setPreviewImage] = useState(null);
@@ -79,7 +80,7 @@ const Home = () => {
                         <label>
                             <input type = "checkbox" className = "checkboxes" /> Select All
                         </label>
-                        <p className = "textmargin">For more information about the models, click <a href = "about.html">here.</a></p>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
                     </div>
                 </div>
             </div>
