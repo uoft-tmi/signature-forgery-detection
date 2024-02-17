@@ -278,6 +278,7 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1.625rem;
   }
 
   #jump {
