@@ -73,15 +73,17 @@ const Home = () => {
 
                     <div id='right-div'>
                         <p>**Instructions**</p>
-                        <label>
-                            <input type = "checkbox" className = "checkboxes" /> <span>Model 1</span>
-                        </label>
-                        <label>
-                            <input type = "checkbox" className = "checkboxes" /> <span>Model 2</span>
-                        </label>
-                        <label>
-                            <input type = "checkbox" className = "checkboxes" /> <span>Select All</span>
-                        </label>
+                        <div id='checkboxes-container'>
+                            <label>
+                                <input type = "checkbox" className = "checkboxes" /> <span>Model 1</span>
+                            </label>
+                            <label>
+                                <input type = "checkbox" className = "checkboxes" /> <span>Model 2</span>
+                            </label>
+                            <label>
+                                <input type = "checkbox" className = "checkboxes" /> <span>Select All</span>
+                            </label>
+                        </div>
                         <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
                     </div>
                 </div>

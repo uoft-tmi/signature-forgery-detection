@@ -190,6 +190,13 @@ video {
     font-weight: 700;
 }
 
+#checkboxes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
   .checkboxes {
     /* margin-left: 50%; */
     -webkit-appearance: none;
@@ -213,6 +220,7 @@ video {
     color: #333333;
     font-size: 1rem;
     font-weight: 400;
+    text-align: center;
   }
   
   #try {
@@ -264,7 +272,7 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
 
   #jump {
