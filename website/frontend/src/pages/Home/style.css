@@ -201,6 +201,7 @@ video {
     outline: none;
     cursor: pointer;
     vertical-align: middle; 
+    border-radius: 4px
   }
 
   input[type="checkbox"]:checked {
