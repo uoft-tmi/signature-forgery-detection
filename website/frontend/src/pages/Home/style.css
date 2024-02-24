@@ -58,6 +58,10 @@ body {
     font-weight: 700;
  }
 
+ header p {
+  color: #494759;
+ }
+
  #left {
     margin-left: 2.8rem;
     font-weight: 800;
@@ -109,17 +113,20 @@ header a:hover {
     margin-top: 7.5rem; 
     margin-bottom: 0.5rem;
     font-weight: 800;
+    color: #494759;
 }
 
 h2 {
     text-align: center;
     font-size: 1.25rem;
     font-weight: 600;
+    color: #494759;
 }
 
 p {
     font-size: 1rem;
     font-weight: 600;
+    color: #494759;
 }
 
 #intro {
@@ -220,14 +227,14 @@ video {
   
   .textmargin {
     /* margin-left: 50%; */
-    color: #333333;
+    color: #494759;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
   }
   
   #try {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   #preview {
@@ -256,6 +263,7 @@ video {
     font-size: 1.5rem;
     font-weight: 800;
     text-align: center;
+    color: #7743DB;
   }
     
   #dragndrop-image {
@@ -275,15 +283,16 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
   #jump {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 5rem;
     align-items: center;
-    margin-bottom: 10rem;
+    margin-bottom: 14rem;
     width: 100%;
     margin-left: 6.25rem;
     margin-right: 6.25rem;
@@ -302,6 +311,11 @@ video {
   @media screen and (max-width: 1100px) {
     #jump {
       flex-direction: column;
+    }
+
+    #right-div {
+      justify-content: center;
+      align-items: center;
     }
   }
   
