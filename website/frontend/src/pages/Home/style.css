@@ -123,6 +123,11 @@ h2 {
     color: #494759;
 }
 
+#title {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 p {
     font-size: 1rem;
     font-weight: 600;
@@ -317,15 +322,18 @@ video {
       justify-content: center;
       align-items: center;
     }
+    footer > p {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+    footer {
+      justify-content: center;
+      flex-direction: column;
+      height: 16rem;
+    }
   }
   
   @media screen and (max-width: 820px) {
-      footer {
-          justify-content: center;
-          flex-direction: column;
-          height: 16rem;
-      }
-
       #jump {
         margin-bottom: 16rem;
       }
@@ -351,6 +359,10 @@ video {
     #left-div {
       width: 75%;
       aspect-ratio: 1/1;
+    }
+
+    footer > p {
+      font-size: 1rem;
     }
   }
 
@@ -402,5 +414,9 @@ video {
 
     header a {
       font-size: 0.625rem;
+    }
+
+    footer > p {
+      font-size: .75rem;
     }
   }

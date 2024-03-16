@@ -39,7 +39,7 @@ const Home = () => {
             <div className="incontainer">
                 <div className = "body_gradient">
                 <h1>Sign of the Times</h1>
-                <h2>Detecting Forged Signatures with Machine Learning</h2>
+                <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
                 <p id='intro'>Intro</p>
                 <video width="720" height="480" controls>
                     <source src="" type="video/mp4"></source>
