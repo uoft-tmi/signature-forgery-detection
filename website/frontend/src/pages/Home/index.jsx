@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
     const [previewImage, setPreviewImage] = useState(null);
     const hiddenFileInput = useRef(null);
+    const scrollRef = useRef(null);
 
     const handleDragOver = (event) => {
         event.preventDefault();
@@ -29,6 +30,10 @@ const Home = () => {
         hiddenFileInput.current.click()
     }
 
+    const handleClick = () => {
+        scrollRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+
     return <>
         <main>
             <div className="incontainer">
@@ -40,10 +45,10 @@ const Home = () => {
                     <source src="" type="video/mp4"></source>
                     Your browser does not support the video tag.
                 </video>
-                <a href="#jump" className="button" id="try">Try it out!</a>
+                <button type = "button" className="button" id="try" onClick={handleClick}>Try it out!</button>
                 </div>
 
-                <div id='jump'>
+                <div id='jump' ref={scrollRef}>
                     <div id='left-div'>
                         <div
                             id='preview-container'
