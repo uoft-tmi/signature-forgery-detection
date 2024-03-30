@@ -1,11 +1,53 @@
 import './style.css'
-import { useState, useRef } from 'react';
+import Checkbox from "./Checkbox";
+import { Models } from "./models";
+import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const Home = () => {
+    const [isCheckAll, setIsCheckAll] = useState(false);
+    const [isCheck, setIsCheck] = useState([]);
+    const [list, setList] = useState([]);
+
     const [previewImage, setPreviewImage] = useState(null);
     const hiddenFileInput = useRef(null);
     const scrollRef = useRef(null);
+
+    useEffect(() => {
+        setList(Models);
+    }, [list]);
+
+    const handleSelectAll = e => {
+        setIsCheckAll(!isCheckAll);
+        setIsCheck(list.map(li => li.id));
+        if (isCheckAll) {
+            setIsCheck([]);
+        }
+    };
+
+    const handleClick = e => {
+        const {id, checked } = e.target;
+        setIsCheck([...isCheck, id]);
+        if (!checked) {
+            setIsCheck(isCheck.filter(item => item !== id));
+        }
+    };
+
+    const options = list.map(({id, name}) => {
+        return (
+            <div key = {id}>
+                <Checkbox
+                key = {id}
+                type = "checkbox"
+                name = {name}
+                id = {id}
+                handleClick = {handleClick}
+                isChecked = {isCheck.includes(id)}
+            />
+            <label htmlFor={id}>{name}</label>
+            </div>
+        );
+    });
 
     const handleDragOver = (event) => {
         event.preventDefault();
@@ -30,7 +72,7 @@ const Home = () => {
         hiddenFileInput.current.click()
     }
 
-    const handleClick = () => {
+    const handleClickScroll = () => {
         scrollRef.current?.scrollIntoView({behavior: 'smooth'});
     }
 
@@ -45,9 +87,8 @@ const Home = () => {
                     <source src="" type="video/mp4"></source>
                     Your browser does not support the video tag.
                 </video>
-                <button type = "button" className="button" id="try" onClick={handleClick}>Try it out!</button>
+                <button type = "button" className="button" id="try" onClick={handleClickScroll}>Try it out!</button>
                 </div>
-
                 <div id='jump' ref={scrollRef}>
                     <div id='left-div'>
                         <div
@@ -73,7 +114,18 @@ const Home = () => {
                                 onChange={handleFileChange}
                                 ref={hiddenFileInput}></input>
                         </div>
-                        <button type = "button" className = "button">Validate</button>
+                        <button type = "button" class = "button">Validate</button>
+                        <div id="bottom">
+                            <Checkbox 
+                            type = "checkbox"
+                            name = "selectAll"
+                            id = "selectAll"
+                            handleClick = {handleSelectAll}
+                            isChecked = {isCheckAll}
+                            />
+                            Select All
+                            {options}
+                        </div>
                     </div>
 
                     <div id='right-div'>
