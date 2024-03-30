@@ -1,7 +1,8 @@
-import './style.css';
+import './style.css'
 import Checkbox from "./Checkbox";
 import { Models } from "./models";
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -29,10 +30,14 @@ const Home = () => {
         {key: 'state2', label: 'Model 2',visible: false}
     ]);
     
-    const [isCheckAll, setIsCheckAll] = useState(true);
+    const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
     const [list, setList] = useState([]);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+    const [previewImage, setPreviewImage] = useState(null);
+    const hiddenFileInput = useRef(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         setList(Models);
@@ -78,7 +83,7 @@ const Home = () => {
 
     const options = list.map(({id, name}) => {
         return (
-            <div key = {id}>
+            <div key = {id} className='checkbox-container'>
                 <Checkbox
                 key = {id}
                 type = "checkbox"
@@ -92,6 +97,33 @@ const Home = () => {
         );
     });
 
+    const handleDragOver = (event) => {
+        event.preventDefault();
+    }
+  
+    const handleDrop = (event) => {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        if (file) {
+            setPreviewImage(URL.createObjectURL(file));
+        }
+    }
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setPreviewImage(URL.createObjectURL(file));
+        }
+    }
+
+    const openFileInput = () => {
+        hiddenFileInput.current.click()
+    }
+
+    const handleClickScroll = () => {
+        scrollRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+
     const handleValidate = async () => {
         setIsButtonClicked(true);
         const queryData = await query("Can you please let us know more details about your ");
@@ -104,54 +136,84 @@ const Home = () => {
 
     return <>
         <main>
-            <div class="incontainer">
-                <div class = "body_gradient">
+            <div className="incontainer">
+                <div className = "body_gradient">
                 <h1>Sign of the Times</h1>
-                <h2>Detecting Forged Signatures with Machine Learning</h2>
+                <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
+                <p id='intro'>Intro</p>
                 <video width="720" height="480" controls>
                     <source src="" type="video/mp4"></source>
                     Your browser does not support the video tag.
                 </video>
-                <a href="#jump" class="button" id="try">Try it out!</a>
+                <button type = "button" className="button" id="try" onClick={handleClickScroll}>Try it out!</button>
                 </div>
-
-                <div>
-                <button type = "button" class = "button" onClick = {handleValidate}>Validate</button>
-                <div id="bottom">
-                    <Checkbox 
-                    type = "checkbox"
-                    name = "selectAll"
-                    id = "selectAll"
-                    handleClick = {handleSelectAll}
-                    isChecked = {isCheckAll}
-                    />
-                    Select All
-                    {options}
-                    <p class = "textmargin">For more information about the models, click <a href = "about.html">here.</a></p>
-                    {isButtonClicked && (
-                    <table>
-                        <thead>
-                            <tr>
-                                {columns.filter(column => column.visible).map(column => (
-                                    <th key={column.key}>{column.label}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* Map through table data and render rows dynamically */}
-                            {tableData.map(row => (
-                                <tr key={row.id}>
-                                    {columns
-                                        .filter(column => column.visible)
-                                        .map(column => (
-                                            <td key={column.key}>{row[column.key]}</td>
+                <div id='jump' ref={scrollRef}>
+                    <div id='left-div'>
+                        <div
+                            id='preview-container'
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
+                            onClick={openFileInput}>
+                            {previewImage ? 
+                            (
+                                <img src={previewImage} id='preview' alt='Preview'></img>
+                            ) :
+                            (
+                                <>
+                                    <div id='dragndrop-container'>
+                                        <img src='drag-and-drop-icon.png' alt='Drag and drop' id='dragndrop-image'></img>
+                                    </div>
+                                    <p id='dragndrop'>Drag & Drop or Browse</p>
+                                </>
+                            )}
+                            <input 
+                                type='file' 
+                                style={{display: 'none'}}
+                                onChange={handleFileChange}
+                                ref={hiddenFileInput}></input>
+                        </div>
+                        <button type = "button" class = "button">Validate</button>
+                    </div>
+                    <div id='right-div'>
+                        <p>**Instructions**</p>
+                        <div id='checkboxes-container'>
+                            <div className='checkbox-container'>
+                                <Checkbox 
+                                type = "checkbox"
+                                name = "selectAll"
+                                id = "selectAll"
+                                handleClick = {handleSelectAll}
+                                isChecked = {isCheckAll}
+                                />
+                                Select All
+                            </div>
+                            {options}
+                            {isButtonClicked && (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {columns.filter(column => column.visible).map(column => (
+                                            <th key={column.key}>{column.label}</th>
                                         ))}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    )}
-                </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* Map through table data and render rows dynamically */}
+                                    {tableData.map(row => (
+                                        <tr key={row.id}>
+                                            {columns
+                                                .filter(column => column.visible)
+                                                .map(column => (
+                                                    <td key={column.key}>{row[column.key]}</td>
+                                                ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            )}
+                        </div>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
+                    </div>
                 </div>
             </div>
         </main>

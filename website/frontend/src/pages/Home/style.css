@@ -19,22 +19,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 70px;
+    padding-top: 4.375rem;
     padding-bottom: 3rem;
     flex-direction: column;
     margin: 0;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0rem;
+    padding-right: 0rem;
  }
 
  header {
     background-color: #ffffff;
-    height: 70px;
+    height: 7.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    top: 0px;
+    top: 0rem;
     width: 100%;
  }
 
@@ -43,7 +43,7 @@ body {
     background-color: #7743DB;
     height: 10rem;
     width: 100%;
-    bottom: 0px;
+    bottom: 0rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -53,22 +53,29 @@ body {
  header a, header p {
     color: #7743DB;
     margin: 1rem;
-    font-size: 20px;
+    font-size: 1.25rem;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+ }
+
+ header p {
+  color: #494759;
  }
 
  #left {
-    margin-left: 24px;
+    margin-left: 2.8rem;
+    font-weight: 800;
+    font-size: 2rem;
  }
 
  #right {
-    margin-right: 24px;
+    margin-right: 1.5rem;
  }
 
 .current-link {
     color: #ba62fe;
     font-weight: 750;
+    text-decoration: underline;
 }
 
 header a:hover {
@@ -82,7 +89,7 @@ header a:hover {
 
  footer > p {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     text-align: center;
  }
@@ -90,6 +97,9 @@ header a:hover {
  .img-container {
     height: 8rem;
     width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
 
  .img-container > img {
@@ -98,30 +108,36 @@ header a:hover {
  }
 
  h1 {
-    font-weight: bold;
-    font-size: 48px;
+    font-size: 2rem;
     text-align: center;
-    margin-top: 48px; 
-    margin-bottom: 8px;
+    margin-top: 7.5rem; 
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    color: #494759;
 }
 
 h2 {
     text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #494759;
+}
+
+#title {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 p {
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #494759;
 }
 
-@media screen and (max-width: 390px) {
-}
-
-@media screen and (max-width: 820px) {
-    footer {
-        justify-content: center;
-        flex-direction: column;
-        height: 16rem;
-    }
+#intro {
+  margin-top: 2.875rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 /* gradient for about page Process subsection */
@@ -138,10 +154,10 @@ p {
 .body_title {
     color: #7743DB;
     margin-left: 5%;
-    padding-top: 50px;
+    padding-top: 3.125rem;
     font-weight: 5000;
     font-family: 'Inter';
-    font-size: 48px;
+    font-size: 3rem;
 }
 
 /* about page paragraph text */
@@ -149,24 +165,24 @@ p {
     color: #7743DB;
     margin-left: 10%;
     font-family: 'Inter';
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-bottom: 10rem;
 }
 
 video {
-    margin-bottom: 3rem;
+    margin-bottom: 1.563rem;
 }
 
 .button {
     background-color: white;
     border: 2px solid #7743DB;
-    width: 126px;
-    height: 34px;
+    width: 7.875rem;
+    height: 2.125rem;
     border-radius: 4px;
     text-align: center;
     text-decoration: none;
     color: #7743DB;
-    font-size: 18px;
+    font-size: 1.125rem;
     justify-content: center;
     display: inline-flex;
     align-items: center;
@@ -174,8 +190,8 @@ video {
 }
 
 .button:hover {
-    width: 126px;
-    height: 34px;
+    width: 7.875rem;
+    height: 2.125rem;
     border-radius: 4px;
     border: 2px solid white;
     background-color: #7743DB;
@@ -184,63 +200,228 @@ video {
     align-items: center;
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: center;
     font-weight: 700;
 }
 
-#bottom {
-    margin-bottom: 10rem;
+#checkboxes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.uploadOuter {
-    align-self: flex-start;
-    text-align: center;
-    margin-left: 5rem;
-    padding: 20px;
-    strong {
-      padding: 0 10px
-    }
-  }
-  .dragBox {
-    width: 250px;
-    height: 100px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    font-weight: bold;
-    line-height: 95px;
-    color: #999;
-    border: 2px dashed #ccc;
-    display: inline-block;
-    transition: transform 0.3s;
-    input[type="file"] {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-      top: 0;
-      left: 0;
-    }
-  }
-  .draging {
-    transform: scale(1.1);
-  }
-  #preview {
-    text-align: center;
-    img {
-      max-width: 100%
-    }
+  .checkboxes {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 0.938rem;
+    height: 0.938rem;
+    border: 2px solid #7743DB;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle; 
+    border-radius: 4px
   }
 
-  .checkboxes {
-    margin-left: 50%;
+  input[type="checkbox"]:checked {
+    background-color: #7743DB;
   }
   
   .textmargin {
-    margin-left: 50%;
+    color: #494759;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
   }
   
   #try {
-    margin-bottom: 32px;
+    margin-bottom: 4rem;
   }
+
+  #preview {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  #preview-container {
+    background-color: #F7EFE6;
+    width: 23.75rem;
+    height: 20rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #dragndrop-container {
+    height: 5rem;
+    width: 6.875rem;
+  }
+
+  #dragndrop {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #7743DB;
+  }
+    
+  #dragndrop-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  #left-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.625rem;
+  }
+
+  #right-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  #jump {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 14rem;
+    width: 100%;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+  }
+
+  label {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  label span {
+    vertical-align: middle; 
+    font-weight: 800;
+  }
+
+  @media screen and (max-width: 1100px) {
+    #jump {
+      flex-direction: column;
+    }
+
+    #right-div {
+      justify-content: center;
+      align-items: center;
+    }
+    footer > p {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+    footer {
+      justify-content: center;
+      flex-direction: column;
+      height: 16rem;
+    }
+  }
+  
+  @media screen and (max-width: 820px) {
+      #jump {
+        margin-bottom: 16rem;
+      }
+  }
+
+  @media screen and (max-width: 900px) {
+    video {
+      width: 75%;
+      height: calc(75vw * 2 / 3);
+    }
+
+    #right-div {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    #preview-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    #left-div {
+      width: 75%;
+      aspect-ratio: 1/1;
+    }
+
+    footer > p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #left {
+      font-size: 1.5rem;
+    }
+
+    /* .body_gradient {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    } */
+  }
+
+  @media screen and (max-width: 400px) {
+    #left {
+      font-size: 1.25rem;
+    }
+
+    header a {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 330px) {
+    #left {
+      font-size: 1rem;
+      margin-left: 2rem;
+    }
+
+    header a {
+      font-size: .75rem;
+    }
+
+    h1 {
+      font-size: 1.5rem
+    }
+    
+    h2 {  
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    #left {
+      font-size: .75rem;
+      margin-left: 1.5rem;
+    }
+
+    header a {
+      font-size: 0.625rem;
+    }
+
+    footer > p {
+      font-size: .75rem;
+    }
+  }
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
