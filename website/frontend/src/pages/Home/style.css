@@ -213,7 +213,6 @@ video {
 }
 
   .checkboxes {
-    /* margin-left: 50%; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -231,7 +230,6 @@ video {
   }
   
   .textmargin {
-    /* margin-left: 50%; */
     color: #494759;
     font-size: 1rem;
     font-weight: 600;
@@ -420,3 +418,10 @@ video {
       font-size: .75rem;
     }
   }
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

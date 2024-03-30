@@ -5,9 +5,35 @@ import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const Home = () => {
+
+    async function query(data) {
+        const response = await fetch(
+            "https://api-inference.huggingface.co/models/gpt2",
+            {
+                headers: { Authorization: `Bearer ${'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'}` },
+                method: "POST",
+                body: JSON.stringify(data),
+            }
+        );
+        const result = await response.json();
+        return result;
+    }
+    query("Can you please let us know more details about your ").then((response) => {
+        console.log(JSON.stringify(response));
+    });
+
+    const [tableData, setTableData] = useState([]); 
+    
+    const [columns, setColumns] = useState([
+        {key: 'image', label: 'Image', visible: true},
+        {key: 'state1', label: 'Model 1', visible: false},
+        {key: 'state2', label: 'Model 2',visible: false}
+    ]);
+    
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
     const [list, setList] = useState([]);
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     const [previewImage, setPreviewImage] = useState(null);
     const hiddenFileInput = useRef(null);
@@ -18,24 +44,46 @@ const Home = () => {
     }, [list]);
 
     const handleSelectAll = e => {
-        setIsCheckAll(!isCheckAll);
-        setIsCheck(list.map(li => li.id));
-        if (isCheckAll) {
-            setIsCheck([]);
-        }
+        const isChecked = e.target.checked;
+        setIsCheckAll(isChecked);
+        setIsCheck(isChecked ? list.map(li => li.id) : []);
+
+        setColumns(prevColumns => {
+            return prevColumns.map((column, index) => {
+                if (index === 0) return column; 
+                return { ...column, visible: isChecked };
+            });
+        });
     };
 
-    const handleClick = e => {
-        const {id, checked } = e.target;
-        setIsCheck([...isCheck, id]);
-        if (!checked) {
-            setIsCheck(isCheck.filter(item => item !== id));
-        }
+    const handleClick = (e) => {
+        const { id, checked } = e.target;
+    
+        setIsCheck((prevCheck) => {
+            if (checked) {
+                return [...prevCheck, id];
+            } else {
+                return prevCheck.filter((item) => item !== id);
+            }
+        });
+    
+        // Update column visibility based on the checkbox being clicked
+        setColumns((prevColumns) => {
+            return prevColumns.map((column) => {
+                if (column.key === id) {
+                    // Set the visibility of the clicked column based on the checkbox state
+                    return { ...column, visible: checked };
+                } else {
+                    // Maintain the visibility of other columns
+                    return column;
+                }
+            });
+        });
     };
 
     const options = list.map(({id, name}) => {
         return (
-            <div key = {id}>
+            <div key = {id} className='checkbox-container'>
                 <Checkbox
                 key = {id}
                 type = "checkbox"
@@ -76,6 +124,16 @@ const Home = () => {
         scrollRef.current?.scrollIntoView({behavior: 'smooth'});
     }
 
+    const handleValidate = async () => {
+        setIsButtonClicked(true);
+        const queryData = await query("Can you please let us know more details about your ");
+        const queryData2 = await query("Hey there");
+        const newRow = {id: tableData.length+1, image: 'newImage', state1: JSON.stringify(queryData2), state2: JSON.stringify(queryData), visible:true};
+        setTableData(prevData => [...prevData, newRow]);
+
+        list.forEach(model => handleClick({ target: { id: model.id, checked: true } }));
+    };
+
     return <>
         <main>
             <div className="incontainer">
@@ -115,31 +173,44 @@ const Home = () => {
                                 ref={hiddenFileInput}></input>
                         </div>
                         <button type = "button" class = "button">Validate</button>
-                        <div id="bottom">
-                            <Checkbox 
-                            type = "checkbox"
-                            name = "selectAll"
-                            id = "selectAll"
-                            handleClick = {handleSelectAll}
-                            isChecked = {isCheckAll}
-                            />
-                            Select All
-                            {options}
-                        </div>
                     </div>
-
                     <div id='right-div'>
                         <p>**Instructions**</p>
                         <div id='checkboxes-container'>
-                            <label>
-                                <input type = "checkbox" className = "checkboxes" /> <span>Model 1</span>
-                            </label>
-                            <label>
-                                <input type = "checkbox" className = "checkboxes" /> <span>Model 2</span>
-                            </label>
-                            <label>
-                                <input type = "checkbox" className = "checkboxes" /> <span>Select All</span>
-                            </label>
+                            <div className='checkbox-container'>
+                                <Checkbox 
+                                type = "checkbox"
+                                name = "selectAll"
+                                id = "selectAll"
+                                handleClick = {handleSelectAll}
+                                isChecked = {isCheckAll}
+                                />
+                                Select All
+                            </div>
+                            {options}
+                            {isButtonClicked && (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {columns.filter(column => column.visible).map(column => (
+                                            <th key={column.key}>{column.label}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* Map through table data and render rows dynamically */}
+                                    {tableData.map(row => (
+                                        <tr key={row.id}>
+                                            {columns
+                                                .filter(column => column.visible)
+                                                .map(column => (
+                                                    <td key={column.key}>{row[column.key]}</td>
+                                                ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            )}
                         </div>
                         <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
                     </div>
