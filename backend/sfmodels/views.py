@@ -6,6 +6,7 @@ from PIL import Image
 import numpy as np
 import io
 from .load_models import ModelLoader
+import json
 
 
 class PredictView(APIView):
@@ -16,6 +17,7 @@ class PredictView(APIView):
             return Response({'error': 'No file part'}, status=400)
         
         file = request.data['file']
+        model_indices = json.loads(request.data['models'])
         
         # Open the image using Pillow
         image = Image.open(file)
@@ -27,6 +29,7 @@ class PredictView(APIView):
         # TODO: might need to reshape the image depending on the model input shape
         image = np.expand_dims(image, axis=0)
 
+        # TODO: only load the models the user wants
         decision_tree = ModelLoader.get_decision_tree()
         models = {'Decision Tree': decision_tree}
         

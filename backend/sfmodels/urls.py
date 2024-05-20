@@ -4,5 +4,5 @@ from .views import PredictView
 app_name = "sfmodels"
 
 urlpatterns = [
-    path("<int:model>/", PredictView.as_view(), name="predict"),
+    path("predict/", PredictView.as_view(), name="predict"),
 ]
