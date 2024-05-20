@@ -5,10 +5,8 @@ from rest_framework.parsers import FileUploadParser
 from PIL import Image
 import numpy as np
 import io
+from .load_models import ModelLoader
 
-
-# TODO: figure out loading trained model into memory
-# want models to be a dict mapping names of models to the actual model
 
 class PredictView(APIView):
     parser_classes = (FileUploadParser,)
@@ -28,6 +26,9 @@ class PredictView(APIView):
         
         # TODO: might need to reshape the image depending on the model input shape
         image = np.expand_dims(image, axis=0)
+
+        decision_tree = ModelLoader.get_decision_tree()
+        models = {'Decision Tree': decision_tree}
         
         predictions = {}
         for name in models:
