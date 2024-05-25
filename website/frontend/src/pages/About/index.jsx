@@ -41,8 +41,7 @@ const About = () => {
                   </ul>
                 </li>
               </ol>
-            </p>
-        </div>
+          </p>
         <h2 class = "body_title">The Models</h2>
         <h3> k-Nearest Neighbours Model</h3>
         <p class = "body_text">By Steven Lin</p>
@@ -60,12 +59,14 @@ const About = () => {
         The model was trained on collected signatures with some marked as authentic 
         and some as forgery. Then, each image data and its pixels were parsed into 
         RGB values that were stored in a tuple and passed into a .npy file. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         The data was then reshaped into 2-D arrays for KNN model to work. The model 
         performance was enhanced by fine tuning the number of neighbours by plotting 
         the accuracy of the model against the number of neighbours chosen. The result 
         with the highest accuracy was chosen for the k-value. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         In the end, the model achieved a test accuracy score of 83.8%, a training accuracy 
         score of 89.2%, and a validation accuracy score of 85.1% with a K-value of 8.
         </p>
@@ -76,26 +77,31 @@ const About = () => {
         <p class = "body_text">
         The general model is fitted with criterion, mins_samples_leaf, min_samples_split, 
         splitter, max_leaf_nodes, max_features, and max_depth parameters. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         General model 1 employs the Gini impurity criterion to assess split quality, 
         requiring at least 10 samples in each leaf node and 600 samples for further 
         node splitting. Using the 'best' strategy, it selects optimal splits at each 
         node while limiting the tree to a maximum of 300 leaf nodes and considering a 
         maximum of 600 features for split determination. The maximum depth of the tree 
         is constrained to 10 levels. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         General model 2 utilizes the entropy criterion to measure split quality. 
         It requires a minimum of 10 samples in each leaf node and 600 samples for further 
         splitting, with the 'best' strategy for selecting optimal splits. The maximum number 
         of leaf nodes is 300, and it considers up to 600 features for determining splits. 
         The depth of this decision tree is limited to 30. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         The individual model is fitted with criterion, splitter, min_samples_split and max_depth parameters.
-        <br></br>
+        </p>
+        <p class = "body_text">
         Individual model 1 uses the entropy criterion to measure the quality of splits 
         with the 'best' strategy for selecting optimal splits at each node. With a minimum 
         of 4 samples required for further splitting and a maximum depth limited to 4 levels.
-        <br></br>
+        </p>
+        <p class = "body_text">
         Individual model 2 evaluates the quality of splits based on the Gini impurity criterion, 
         coupled with a 'random' strategy for selecting splits at each node. With a minimum of 8 
         samples needed for further splitting and a maximum depth restricted to 2 levels.
@@ -104,10 +110,12 @@ const About = () => {
         <p class = "body_text">
         The general model was trained on a data set consisting of 3194 signature images and 
         labels that indicated if it was a forgery or an original. 
-        <br></br>
+        </p>
+        <p class = "body_text">
         The individual data was trained on a data set consisting of 20 signature images 
         specific to one person and labels that indicated if it was a forgery or an original.
-        <br></br>
+        </p>
+        <p class = "body_text">
         Both types of models were tuned conducting gird searches using sklearn model_selection 
         package’s GridSearchCV function. Multiple randomly chosen parameter combinations were 
         put in a list and fitted all together. The parameters with the highest accuracies 
@@ -169,7 +177,8 @@ const About = () => {
             dataset's labels’ axis, preventing their concatenation 
             with the first dataset.
           </li>
-          Individual
+        </ul>
+        Individual
           <ul>
             <li>The validation set only had four images, so it 
               was combined with the test set that contained 24 images. 
@@ -182,7 +191,6 @@ const About = () => {
             signatures of just one individual, the outcomes are less surprising.
             </li>
           </ul>
-        </ul>
         </p>
 
 
@@ -220,6 +228,7 @@ const About = () => {
             <li><b>Testing Loss:</b> 29.01%</li>
           </ul>
         </p>
+        </div>
       </div>
     </main>
     </>

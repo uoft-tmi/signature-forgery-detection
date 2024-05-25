@@ -15,7 +15,7 @@ body {
     margin: 0;
  }
 
- .incontainer {
+.incontainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,9 +25,9 @@ body {
     margin: 0;
     padding-left: 0px;
     padding-right: 0px;
- }
+}
 
- header {
+header {
     background-color: #ffffff;
     height: 70px;
     display: flex;
@@ -36,9 +36,9 @@ body {
     position: absolute;
     top: 0px;
     width: 100%;
- }
+}
 
- footer {
+footer {
     position: absolute;
     background-color: #7743DB;
     height: 10rem;
@@ -48,23 +48,23 @@ body {
     align-items: center;
     justify-content: space-evenly;
     margin: 0;
- }
+}
 
- header a, header p {
+header a, header p {
     color: #7743DB;
     margin: 1rem;
     font-size: 20px;
     text-decoration: none;
     font-weight: 600;
- }
+}
 
- #left {
+#left {
     margin-left: 24px;
- }
+}
 
- #right {
+#right {
     margin-right: 24px;
- }
+}
 
 .current-link {
     color: #ba62fe;
@@ -73,31 +73,31 @@ body {
 
 header a:hover {
     color: #000;
- }
+}
 
- footer img, footer p {
+footer img, footer p {
     margin-right: 1rem;
     margin-left: 1rem;
- }
+}
 
- footer > p {
+footer > p {
     color: #ffffff;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
- }
+}
 
- .img-container {
+.img-container {
     height: 8rem;
     width: 8rem;
- }
+}
 
- .img-container > img {
+.img-container > img {
     width: 100%;
     height: 100%;
- }
+}
 
- h1 {
+h1 {
     font-weight: bold;
     font-size: 48px;
     text-align: center;
@@ -109,8 +109,32 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-size: 2rem;
+    font-family: 'Inter';
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.75rem;
+    font-family: 'Inter';
+    margin-bottom: 1rem;
+}
+
 p {
     font-size: 16px;
+}
+
+li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+table, th, td {
+    border: 0.1rem solid #7743DB;
+    border-collapse: collapse;
+    padding: 15px;
+    margin-top: 0.75rem;
 }
 
 @media screen and (max-width: 390px) {
@@ -132,6 +156,7 @@ p {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 10rem;
 }
 
 /* about page subtitles */
@@ -148,8 +173,8 @@ p {
     color: #7743DB;
     font-family: 'Inter';
     font-size: 24px;
-    margin-bottom: 10rem;
     margin-right: 10%;
+    margin-bottom: 0.5rem;
 }
 
 video {
@@ -200,8 +225,9 @@ video {
     strong {
       padding: 0 10px
     }
-  }
-  .dragBox {
+}
+
+.dragBox {
     width: 250px;
     height: 100px;
     margin: 0 auto;
@@ -221,17 +247,17 @@ video {
       top: 0;
       left: 0;
     }
-  }
-  .draging {
+}
+.draging {
     transform: scale(1.1);
-  }
-  #preview {
+}
+#preview {
     text-align: center;
     img {
-      max-width: 100%
+        max-width: 100%
     }
-  }
+}
 
-  #try {
+#try {
     margin-bottom: 32px;
-  }
+}
