@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import FileUploadParser
+from rest_framework.parsers import MultiPartParser
 from PIL import Image
 import numpy as np
 import io
@@ -10,13 +10,11 @@ import json
 
 
 class PredictView(APIView):
-    parser_classes = (FileUploadParser,)
-
     def post(self, request, *args, **kwargs):
-        if 'file' not in request.data:
-            return Response({'error': 'No file part'}, status=400)
+        # if 'file' not in request.data:
+        #     return Response({'error': 'No file part'}, status=400)
         
-        file = request.data['file']
+        file = request.FILES['file']
         model_indices = json.loads(request.data['models'])
         
         # Open the image using Pillow
