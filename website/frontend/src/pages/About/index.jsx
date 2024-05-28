@@ -6,9 +6,23 @@ const About = () => {
       <div class="incontainer">
         <div class = "body_gradient">
           <h1 class = "body_title">About Us </h1>
-          <p class = "body_text">**INSERT TABLE OF CONTENTS**</p>
-          <h2 class = "body_title">Process</h2>
-          <h3>Datasets</h3>
+          <p class = "body_text">
+            <ol>
+              <li><a href="#process">Process</a></li>
+              <ol>
+                <li><a href="#dataset">Datasets</a></li>
+                <li><a href="#preprocessing">Preprocessing</a></li>
+              </ol>
+              <li><a href="#models">Models</a></li>
+              <ol>
+                <li><a href="#knn">k-Nearest Neighbours</a> by Steven Lin</li>
+                <li><a href="#decision-tree">Decision Tree</a> by Dorothy Lee</li>
+                <li><a href="#cnn">Convolutional Neural Network</a> by Puneet Kaur</li>
+              </ol>
+            </ol>
+          </p>
+          <h2 class = "body_title" id="process">Process</h2>
+          <h3 id="dataset">Datasets</h3>
           <p class = "body_text">
             The training sets, validation sets, and test sets were created by concatenating the corresponding sets from each of following datasets.
               <ol>
@@ -45,7 +59,7 @@ const About = () => {
                 </li>
               </ol>
           </p>
-          <h3>
+          <h3 id="preprocessing">
             Preprocessing
           </h3>
           <p class="body_text">
@@ -55,8 +69,8 @@ const About = () => {
               <li>Reduce the noise in the image with Non-local Means Denoising <a href="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </a></li>
             </ol>
           </p>
-        <h2 class = "body_title">The Models</h2>
-        <h3> k-Nearest Neighbours Model</h3>
+        <h2 class = "body_title" id="models">The Models</h2>
+        <h3 id="knn"> k-Nearest Neighbours Model</h3>
         <p class = "body_text">By Steven Lin</p>
         <h4>Model Parameters</h4>
         <p class = "body_text">
@@ -84,7 +98,7 @@ const About = () => {
         score of 89.2%, and a validation accuracy score of 85.1% with a K-value of 8.
         </p>
 
-        <h3> Decision Tree Classifier</h3>
+        <h3 id="decision-tree"> Decision Tree Classifier</h3>
         <p class = "body_text">By Dorothy Lee</p>
         <h4>Model Parameters</h4>
         <p class = "body_text">
@@ -207,7 +221,7 @@ const About = () => {
         </p>
 
 
-        <h3> CNN Model</h3>
+        <h3 id="cnn"> CNN Model</h3>
         <p class = "body_text">By Puneet Kaur</p>
         <h4>Architecture</h4>
         <p class = "body_text">

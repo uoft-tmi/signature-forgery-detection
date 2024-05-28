@@ -153,9 +153,9 @@ p {
 /* about page subtitles */
 .body_title {
     color: #7743DB;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     padding-top: 3.125rem;
-    font-weight: 5000;
+    font-weight: 700;
     font-family: 'Inter';
     font-size: 3rem;
 }

@@ -140,6 +140,10 @@ li {
     margin-bottom: 0.5rem;
 }
 
+ol ol {
+    list-style-type: lower-latin
+}
+
 table, th, td {
     border: 0.1rem solid #494759;
     border-collapse: collapse;
@@ -173,7 +177,7 @@ table, th, td {
 .body_title {
     color: #494759;
     padding-top: 50px;
-    font-weight: 5000;
+    font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5rem;
 }
