@@ -5,7 +5,10 @@ const About = () => {
         <main>
       <div class="incontainer">
         <div class = "body_gradient">
+          <h1 class = "body_title">About Us </h1>
+          <p class = "body_text">**INSERT TABLE OF CONTENTS**</p>
           <h2 class = "body_title">Process</h2>
+          <h3>Datasets</h3>
           <p class = "body_text">
             The training sets, validation sets, and test sets were created by concatenating the corresponding sets from each of following datasets.
               <ol>
@@ -41,6 +44,16 @@ const About = () => {
                   </ul>
                 </li>
               </ol>
+          </p>
+          <h3>
+            Preprocessing
+          </h3>
+          <p class="body_text">
+            <ol>
+              <li>Convert the image into grayscale </li>
+              <li>Resize the image to 250 pixels x 250 pixels</li>
+              <li>Reduce the noise in the image with Non-local Means Denoising <a href="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </a></li>
+            </ol>
           </p>
         <h2 class = "body_title">The Models</h2>
         <h3> k-Nearest Neighbours Model</h3>

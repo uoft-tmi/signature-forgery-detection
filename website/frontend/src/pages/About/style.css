@@ -4,8 +4,8 @@ html, body{
 }
 
 body {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    color: #7743DB;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #494759;
 }
 
 .page-container {
@@ -67,7 +67,7 @@ header a, header p {
 }
 
 .current-link {
-    color: #ba62fe;
+    color: #c371d5;
     font-weight: 750;
 }
 
@@ -97,6 +97,15 @@ footer > p {
     height: 100%;
 }
 
+a {
+    color: #7743DB;
+    font-weight: 600;
+}
+
+a:hover {
+    color: black;
+}
+
 h1 {
     font-weight: bold;
     font-size: 48px;
@@ -110,14 +119,15 @@ h2 {
 }
 
 h3 {
+    color: #7743DB;
     font-size: 2rem;
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 1rem;
 }
 
 h4 {
     font-size: 1.75rem;
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 1rem;
 }
 
@@ -131,7 +141,7 @@ li {
 }
 
 table, th, td {
-    border: 0.1rem solid #7743DB;
+    border: 0.1rem solid #494759;
     border-collapse: collapse;
     padding: 15px;
     margin-top: 0.75rem;
@@ -161,20 +171,21 @@ table, th, td {
 
 /* about page subtitles */
 .body_title {
-    color: #7743DB;
+    color: #494759;
     padding-top: 50px;
     font-weight: 5000;
-    font-family: 'Inter';
-    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
 }
 
 /* about page paragraph text */
 .body_text {
-    color: #7743DB;
-    font-family: 'Inter';
-    font-size: 24px;
+    color: #494759;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
     margin-right: 10%;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 video {
