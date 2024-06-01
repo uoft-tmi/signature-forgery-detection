@@ -4,6 +4,7 @@ django-cors-headers==4.3.1
 djangorestframework==3.15.1
 joblib==1.4.2
 numpy==1.26.4
+opencv-python==4.9.0.80
 pillow==10.3.0
 PyJWT==2.8.0
 scikit-learn==1.2.2
