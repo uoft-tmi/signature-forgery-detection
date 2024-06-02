@@ -54,7 +54,7 @@ header a, header p {
     color: #7743DB;
     margin: 1rem;
     font-size: 20px;
-    text-decoration: none;
+    /* text-decoration: none; */
     font-weight: 600;
 }
 
@@ -226,6 +226,24 @@ video {
     font-size: 18px;
     text-align: center;
     font-weight: 700;
+}
+
+.cnn-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr
+}
+
+@media screen and (max-width: 700px) {
+    .cnn-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.cnn-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #bottom {

@@ -1,6 +1,23 @@
 import './style.css'
+import React, { useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+
+
+
 
 const About = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+
+
     return <>
         <main>
       <div class="incontainer">
@@ -8,16 +25,16 @@ const About = () => {
           <h1 class = "body_title">About Us </h1>
           <p class = "body_text">
             <ol>
-              <li><a href="#process">Process</a></li>
+              <li><Link to="#process">Process</Link></li>
               <ol>
-                <li><a href="#dataset">Datasets</a></li>
-                <li><a href="#preprocessing">Preprocessing</a></li>
+                <li><Link to="#dataset">Datasets</Link></li>
+                <li><Link to="#preprocessing">Preprocessing</Link></li>
               </ol>
-              <li><a href="#models">Models</a></li>
+              <li><Link to="#models">Models</Link></li>
               <ol>
-                <li><a href="#knn">k-Nearest Neighbours</a> by Steven Lin</li>
-                <li><a href="#decision-tree">Decision Tree</a> by Dorothy Lee</li>
-                <li><a href="#cnn">Convolutional Neural Network</a> by Puneet Kaur</li>
+                <li><Link to="#knn">k-Nearest Neighbours</Link> by Steven Lin</li>
+                <li><Link to="#decision-tree">Decision Tree</Link> by Dorothy Lee</li>
+                <li><Link to="#cnn">Convolutional Neural Network</Link> by Puneet Kaur</li>
               </ol>
             </ol>
           </p>
@@ -27,10 +44,10 @@ const About = () => {
             The training sets, validation sets, and test sets were created by concatenating the corresponding sets from each of following datasets.
               <ol>
                 <li>
-                  <a href="https://www.kaggle.com/datasets/shreelakshmigp/cedardataset">CEDAR dataset</a> 
+                  <Link to="https://www.kaggle.com/datasets/shreelakshmigp/cedardataset">CEDAR dataset</Link> 
                   <ul>
                     <li>initally introduced by &#8203;
-                      <a href="https://cedar.buffalo.edu/~srihari/papers/ICGVIP2006-sig.pdf">Srinivasn et al. in 2006</a>
+                      <Link to="https://cedar.buffalo.edu/~srihari/papers/ICGVIP2006-sig.pdf">Srinivasn et al. in 2006</Link>
                     </li>
                     <li>
                       1320 genuine signatures from 55 individuals who contributed 24 signatures each
@@ -44,10 +61,10 @@ const About = () => {
                   </ul>
                 </li>
                 <li>
-                  <a href="https://www.kaggle.com/datasets/robinreni/signature-verification-dataset">ICDAR 2011 Signature Dataset</a> 
+                  <Link to="https://www.kaggle.com/datasets/robinreni/signature-verification-dataset">ICDAR 2011 Signature Dataset</Link> 
                   <ul>
                     <li>from &#8203;
-                      <a href="https://ieeexplore.ieee.org/document/6065554">SigComp2011</a>
+                      <Link to="https://ieeexplore.ieee.org/document/6065554">SigComp2011</Link>
                     </li>
                     <li>
                       64 individuals who on average contributed 12 genuine signatures and had 12 forged signatures for a total of 2149 signatures
@@ -66,7 +83,7 @@ const About = () => {
             <ol>
               <li>Convert the image into grayscale </li>
               <li>Resize the image to 250 pixels x 250 pixels</li>
-              <li>Reduce the noise in the image with Non-local Means Denoising <a href="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </a></li>
+              <li>Reduce the noise in the image with Non-local Means Denoising <Link to="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </Link></li>
             </ol>
           </p>
         <h2 class = "body_title" id="models">The Models</h2>
@@ -235,26 +252,32 @@ const About = () => {
         sigmoid activation function for binary classification.
         </p>
 
-        <h4>Training Details</h4>
-        <p class = "body_text">
-        <ul>
-          <li> <b>Optimizer: </b> Adam optimizer with a learning rate of 0.0001. </li>  
-          <li><b>Loss Function:</b> binary cross-entropy</li>
-          <li><b>Batch Size:</b> 32</li>
-          <li><b>Number of Epochs:</b> 10</li>
-        </ul>
-        </p>
-        <h4>Results</h4>
-        <p class = "body_text">
-          <ul>
-            <li><b>Training Accuracy:</b> 90.72%</li>
-            <li><b>Training Loss:</b> 23.93%</li>
-            <li><b>Validation Accuracy:</b> 79.83%</li>
-            <li><b>Validation Loss:</b> 42.00%</li>
-            <li><b>Testing Accuracy:</b> 86.72%</li>
-            <li><b>Testing Loss:</b> 29.01%</li>
-          </ul>
-        </p>
+        <div class="cnn-stats">
+          <div class="cnn-stat-item">
+            <h4>Training Details</h4>
+            <p class = "body_text">
+            <ul>
+              <li> <b>Optimizer: </b> Adam optimizer with a learning rate of 0.0001. </li>  
+              <li><b>Loss Function:</b> binary cross-entropy</li>
+              <li><b>Batch Size:</b> 32</li>
+              <li><b>Number of Epochs:</b> 10</li>
+            </ul>
+            </p>
+          </div>
+          <div class="cnn-stat-item">
+            <h4>Results</h4>
+            <p class = "body_text">
+              <ul>
+                <li><b>Training Accuracy:</b> 90.72%</li>
+                <li><b>Training Loss:</b> 23.93%</li>
+                <li><b>Validation Accuracy:</b> 79.83%</li>
+                <li><b>Validation Loss:</b> 42.00%</li>
+                <li><b>Testing Accuracy:</b> 86.72%</li>
+                <li><b>Testing Loss:</b> 29.01%</li>
+              </ul>
+            </p>
+          </div>
+        </div>
         </div>
       </div>
     </main>

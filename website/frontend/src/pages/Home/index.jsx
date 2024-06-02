@@ -175,7 +175,7 @@ const Home = () => {
                         <button type = "button" class = "button">Validate</button>
                     </div>
                     <div id='right-div'>
-                        <p>**Instructions**</p>
+                        <p>Upload an image of a signature and click the models you want to try</p>
                         <div id='checkboxes-container'>
                             <div className='checkbox-container'>
                                 <Checkbox 
@@ -212,7 +212,7 @@ const Home = () => {
                             </table>
                             )}
                         </div>
-                        <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link></p>
                     </div>
                 </div>
             </div>
