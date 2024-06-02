@@ -12,22 +12,8 @@ from .preprocessing import preprocess
 
 class PredictView(APIView):
     def post(self, request, *args, **kwargs):
-        # if 'file' not in request.data:
-        #     return Response({'error': 'No file part'}, status=400)
-        
         file = request.FILES['file']
         model_indices = json.loads(request.data['models'])
-        
-        # prev preprocess stuff
-            # # Open the image using Pillow
-            # image = Image.open(file)
-            
-            # # Preprocess the image (resize, normalize, etc.)
-            # image = image.resize((250, 250))
-            # image = np.array(image) / 255.0    # Normalize pixel values
-            
-            # # TODO: might need to reshape the image depending on the model input shape
-            # image = np.expand_dims(image, axis=0)
         
         reg_img, tree_img = preprocess(file)
 
