@@ -19,7 +19,9 @@ class PredictView(APIView):
 
         # TODO: only load the models the user wants
         decision_tree = ModelLoader.get_decision_tree()
-        models = {'Decision Tree': decision_tree}
+        knn = ModelLoader.get_knn()
+        models = {'Decision Tree': decision_tree,
+                  'KNN': knn,}
         
         predictions = {}
         for name in models:
