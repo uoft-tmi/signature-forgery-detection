@@ -9,11 +9,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/signature-forgery-detection/" element={<Layout />}>
           <Route index element={<Navigate to="home" />} />
           <Route index element={<Navigate to="about" />} />
-          <Route path='home' element={<Home />}/>
-          <Route path='about' element={<About />}/>
+          <Route path='/signature-forgery-detection/home' element={<Home />}/>
+          <Route path='/signature-forgery-detection/about' element={<About />}/>
         </Route>
       </Routes>
     </BrowserRouter>

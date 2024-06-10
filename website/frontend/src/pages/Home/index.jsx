@@ -212,7 +212,7 @@ const Home = () => {
                             </table>
                             )}
                         </div>
-                        <p className = "textmargin">For more information about the models, click <Link to = "/about">here.</Link></p>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/signature-forgery-detection/about">here.</Link></p>
                     </div>
                 </div>
             </div>

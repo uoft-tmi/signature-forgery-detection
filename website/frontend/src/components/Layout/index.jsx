@@ -11,11 +11,11 @@ const Layout = () => {
     useEffect(() => {
         const currentPath = location.pathname;
         switch (currentPath) {
-            case '/':
+            case '/signature-forgery-detection/':
                 setHomeClass('current-link');
                 setAboutClass('');
                 break;
-            case '/about':
+            case '/signature-forgery-detection/about':
                 setHomeClass('');
                 setAboutClass('current-link');
                 break;
@@ -31,8 +31,8 @@ const Layout = () => {
             <header>
             <p id="left">Signature Forgery Detection</p>
             <div id="right">
-                <Link to={"/"} className={homeClass}>Home</Link>
-                <Link to={"/about"} className={aboutClass}>About</Link>
+                <Link to={"/signature-forgery-detection/"} className={homeClass}>Home</Link>
+                <Link to={"/signature-forgery-detection/about"} className={aboutClass}>About</Link>
             </div>
             </header>
             <Outlet />
