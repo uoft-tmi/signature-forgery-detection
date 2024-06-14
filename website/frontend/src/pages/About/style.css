@@ -131,6 +131,13 @@ h4 {
     margin-bottom: 1rem;
 }
 
+hr {
+    background: #f7efe5;
+    height: .1rem;
+    width: 80%;
+    border: 1rem solid #362F1F;
+}
+
 p {
     font-size: 16px;
 }
@@ -159,7 +166,12 @@ table, th, td {
         justify-content: center;
         flex-direction: column;
         height: 16rem;
+        bottom: -12rem;
     }
+}
+
+.big {
+    border-top-color: black;
 }
 
 /* gradient for about page Process subsection */
@@ -176,7 +188,7 @@ table, th, td {
 /* about page subtitles */
 .body_title {
     color: #494759;
-    padding-top: 50px;
+    padding-top: 3rem;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5rem;
@@ -190,6 +202,10 @@ table, th, td {
     margin-right: 10%;
     margin-bottom: 0.5rem;
     font-weight: 500;
+}
+
+.divider{
+    border-top: 10px solid black;
 }
 
 video {
