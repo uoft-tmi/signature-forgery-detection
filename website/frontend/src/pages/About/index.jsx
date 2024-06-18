@@ -77,7 +77,7 @@ const About = () => {
                 </li>
               </ol>
           </p>
-          <p>───── ⋆⋅☆⋅⋆ ─────</p>
+          <p> ───── ⋆⋅☆⋅⋆ ─────</p>
           <h3 id="preprocessing">
             Preprocessing
           </h3>
@@ -88,7 +88,7 @@ const About = () => {
               <li>Reduce the noise in the image with Non-local Means Denoising <Link to="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </Link></li>
             </ol>
           </p>
-        <p>✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
+          <p>✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
         <h2 class = "body_title" id="models">The Models</h2>
         <h3 id="knn"> k-Nearest Neighbours Model</h3>
         <p class = "body_text">By Steven Lin</p>
