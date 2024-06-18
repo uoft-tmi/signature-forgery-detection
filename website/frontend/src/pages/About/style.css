@@ -41,7 +41,7 @@ header {
 footer {
     position: absolute;
     background-color: #7743DB;
-    height: 10rem;
+    min-height: 11rem;
     width: 100%;
     bottom: 0px;
     display: flex;
@@ -165,8 +165,8 @@ table, th, td {
     footer {
         justify-content: center;
         flex-direction: column;
-        height: 16rem;
-        bottom: -12rem;
+        /* height: 12rem; */
+        /* bottom: 0rem; */
     }
 }
 
@@ -260,6 +260,7 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 3rem;
 }
 
 #bottom {
