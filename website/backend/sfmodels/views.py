@@ -1,10 +1,5 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser
-from PIL import Image
-import numpy as np
-import io
 from .load_models import ModelLoader
 import json
 from .preprocessing import preprocess
@@ -17,14 +12,13 @@ class PredictView(APIView):
         
         reg_img, tree_img = preprocess(file)
 
-        # TODO: only load the models the user wants
-        decision_tree = ModelLoader.get_decision_tree()
-        knn = ModelLoader.get_knn()
-        cnn = ModelLoader.get_cnn()
-
-        models = {'Decision Tree': decision_tree,
-                  'KNN': knn,
-                  'CNN': cnn}
+        models = {}
+        if 1 in model_indices:
+            models['Decision Tree'] = ModelLoader.get_decision_tree()
+        if 2 in model_indices:
+            models['KNN'] = ModelLoader.get_knn()
+        if 3 in model_indices:
+            models['CNN'] = ModelLoader.get_cnn()
         
         predictions = {}
         for name in models:
