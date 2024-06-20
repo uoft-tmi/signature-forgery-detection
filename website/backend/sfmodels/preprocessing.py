@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image
 
 # takes in the path to the file and returns the image as an array
 def preprocess(file: str):
