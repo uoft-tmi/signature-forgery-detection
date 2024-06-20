@@ -20,11 +20,18 @@ class PredictView(APIView):
         # TODO: only load the models the user wants
         decision_tree = ModelLoader.get_decision_tree()
         knn = ModelLoader.get_knn()
+        cnn = ModelLoader.get_cnn()
+
         models = {'Decision Tree': decision_tree,
-                  'KNN': knn,}
+                  'KNN': knn,
+                  'CNN': cnn}
         
         predictions = {}
         for name in models:
-            predictions[name] = models[name].predict(tree_img)
+            if name == "CNN":
+                image = reg_img
+            else:
+                image = tree_img
+            predictions[name] = models[name].predict(image)
         
         return Response({'predictions': predictions})
