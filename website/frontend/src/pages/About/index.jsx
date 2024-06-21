@@ -38,7 +38,7 @@ const About = () => {
               </ol>
             </ol>
           </p>
-          <p>✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
+          <p class="divider">✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
           <h2 class = "body_title" id="process">Process</h2>
           <h3 id="dataset">Datasets</h3>
           <p class = "body_text">
@@ -77,7 +77,7 @@ const About = () => {
                 </li>
               </ol>
           </p>
-          <p> ───── ⋆⋅☆⋅⋆ ─────</p>
+          <p class="divider"> ───── ⋆⋅☆⋅⋆ ─────</p>
           <h3 id="preprocessing">
             Preprocessing
           </h3>
@@ -88,7 +88,7 @@ const About = () => {
               <li>Reduce the noise in the image with Non-local Means Denoising <Link to="https://docs.opencv.org/4.x/d1/d79/group__photo__denoise.html#ga4c6b0031f56ea3f98f768881279ffe93">OpenCV </Link></li>
             </ol>
           </p>
-          <p>✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
+          <p class="divider">✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
         <h2 class = "body_title" id="models">The Models</h2>
         <h3 id="knn"> k-Nearest Neighbours Model</h3>
         <p class = "body_text">By Steven Lin</p>
@@ -117,7 +117,7 @@ const About = () => {
         In the end, the model achieved a test accuracy score of 83.8%, a training accuracy 
         score of 89.2%, and a validation accuracy score of 85.1% with a K-value of 8.
         </p>
-        <p>───── ⋆⋅☆⋅⋆ ─────</p>
+        <p class="divider">───── ⋆⋅☆⋅⋆ ─────</p>
         <h3 id="decision-tree"> Decision Tree Classifier</h3>
         <p class = "body_text">By Dorothy Lee</p>
         <h4>Model Parameters</h4>
@@ -240,7 +240,7 @@ const About = () => {
           </ul>
         </p>
 
-        <p>───── ⋆⋅☆⋅⋆ ─────</p>
+        <p class="divider">───── ⋆⋅☆⋅⋆ ─────</p>
         <h3 id="cnn"> CNN Model</h3>
         <p class = "body_text">By Puneet Kaur</p>
         <h4>Architecture</h4>

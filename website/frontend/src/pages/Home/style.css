@@ -29,7 +29,7 @@ body {
 
  header {
     background-color: #ffffff;
-    height: 7.5rem;
+    min-height: 7.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +54,7 @@ body {
     color: #7743DB;
     margin: 1rem;
     font-size: 1.25rem;
-    /* text-decoration: none; */
+    text-decoration: none;
     font-weight: 700;
  }
 
@@ -153,9 +153,9 @@ p {
 /* about page subtitles */
 .body_title {
     color: #7743DB;
-    /* margin-left: 5%; */
+    margin-left: 5%;
     padding-top: 3.125rem;
-    font-weight: 700;
+    font-weight: 5000;
     font-family: 'Inter';
     font-size: 3rem;
 }

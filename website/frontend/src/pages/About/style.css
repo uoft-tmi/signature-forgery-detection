@@ -29,7 +29,7 @@ body {
 
 header {
     background-color: #ffffff;
-    height: 70px;
+    min-height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -205,7 +205,7 @@ table, th, td {
 }
 
 .divider{
-    border-top: 10px solid black;
+    text-overflow: clip;
 }
 
 video {
