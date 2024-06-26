@@ -27,13 +27,16 @@ const Home = () => {
     const [columns, setColumns] = useState([
         {key: 'image', label: 'Image', visible: true},
         {key: 'state1', label: 'Model 1', visible: false},
-        {key: 'state2', label: 'Model 2',visible: false}
+        {key: 'state2', label: 'Model 2',visible: false},
+        {key: 'state3', label: 'Model 3', visible: false}
     ]);
     
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
     const [list, setList] = useState([]);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
+    const [imageURL, setImageURL] = useState(null);
+
 
     const [previewImage, setPreviewImage] = useState(null);
     const hiddenFileInput = useRef(null);
@@ -105,14 +108,18 @@ const Home = () => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
         if (file) {
-            setPreviewImage(URL.createObjectURL(file));
+            const imageURL = URL.createObjectURL(file);
+            setPreviewImage(imageURL);
+            setImageURL(imageURL);
         }
     }
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setPreviewImage(URL.createObjectURL(file));
+            const imageURL = URL.createObjectURL(file);
+            setPreviewImage(imageURL);
+            setImageURL(imageURL);
         }
     }
 
@@ -126,12 +133,20 @@ const Home = () => {
 
     const handleValidate = async () => {
         setIsButtonClicked(true);
-        const queryData = await query("Can you please let us know more details about your ");
-        const queryData2 = await query("Hey there");
-        const newRow = {id: tableData.length+1, image: 'newImage', state1: JSON.stringify(queryData2), state2: JSON.stringify(queryData), visible:true};
-        setTableData(prevData => [...prevData, newRow]);
+        if (imageURL) {
+            const queryData = await query("Can you please let us know more details about your ");
+            const queryData2 = await query("Hey there");
+            const newImageURL = imageURL;
 
-        list.forEach(model => handleClick({ target: { id: model.id, checked: true } }));
+            const isDuplicate = tableData.some(row => row.image === newImageURL);
+
+            if (!isDuplicate) {
+                const newRow = {id: tableData.length+1, image: imageURL, state1: JSON.stringify(queryData2), state2: JSON.stringify(queryData), state3: JSON.stringify(queryData), visible:true};
+                setTableData(prevData => [...prevData, newRow]);
+            }
+
+            list.forEach(model => handleClick({ target: { id: model.id, checked: true } }));
+        }
     };
 
     return <>
@@ -172,7 +187,7 @@ const Home = () => {
                                 onChange={handleFileChange}
                                 ref={hiddenFileInput}></input>
                         </div>
-                        <button type = "button" class = "button">Validate</button>
+                        <button type = "button" class = "button" onClick = {handleValidate}>Validate</button>
                     </div>
                     <div id='right-div'>
                         <p>**Instructions**</p>
@@ -189,7 +204,7 @@ const Home = () => {
                             </div>
                             {options}
                             {isButtonClicked && (
-                            <table>
+                            <table className="custom-table">
                                 <thead>
                                     <tr>
                                         {columns.filter(column => column.visible).map(column => (
@@ -204,7 +219,13 @@ const Home = () => {
                                             {columns
                                                 .filter(column => column.visible)
                                                 .map(column => (
-                                                    <td key={column.key}>{row[column.key]}</td>
+                                                    <td key={column.key}>
+                                                        {column.key === 'image' && row[column.key] ? (
+                                                            <img src={row[column.key]} alt="Preview" style={{ width: '100px' }} />
+                                                        ) : (
+                                                            row[column.key]
+                                                        )}
+                                                    </td>
                                                 ))}
                                         </tr>
                                     ))}
