@@ -2,11 +2,12 @@
 
 ## Motivation
 Problem: Signatures are used to indicate authenticity but can forged
-Solution: use ML to detect forgeries 
+
+Solution: use machine learning to detect forgeries 
 
 ## How to run online
 
-A website at https://uoft-tmi.github.io/signature-forgery-detection/home was created to 
+A website at https://uoft-tmi.github.io/signature-forgery-detection/ was created to 
 showcase and interact with the k-nearest neighbours, decision tree, and convolutional neural network models.
 
 Until July 2, 2025, images can be uploaded to the website where the models where be queried.
