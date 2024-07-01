@@ -1,8 +1,8 @@
 # Signature Forgery Detection
 
 ## Motivation
-- Signatures are used to indicate authenticity but can forged
-- use ML to detect forgeries 
+Problem: Signatures are used to indicate authenticity but can forged
+Solution: use ML to detect forgeries 
 
 ## How to run online
 
