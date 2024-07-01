@@ -123,8 +123,8 @@ h3 {
     font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 1rem;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 h4 {
@@ -142,6 +142,7 @@ hr {
 
 p {
     font-size: 16px;
+    text-align: left;
 }
 
 li {
@@ -183,6 +184,8 @@ table, th, td {
     justify-content: center;
     flex-direction: column;
     margin-bottom: 10rem;
+    text-align: center;
+    padding-bottom: 48px;
 }
 
 /* about page subtitles */
@@ -206,10 +209,9 @@ table, th, td {
 }
 
 .divider{
-    text-overflow: clip;
     margin-right: 10%;
     margin-left: 10%;
-    text-overflow: clip;
+    text-align: center;
 }
 
 video {
@@ -257,8 +259,10 @@ video {
     .cnn-stats {
         grid-template-columns: 1fr;
     }
+    .cnn-stat-item {
+        padding-bottom: 0px;
+    }
 }
-
 
 .cnn-stat-item {
     display: flex;
@@ -314,4 +318,12 @@ video {
 
 #try {
     margin-bottom: 32px;
+}
+
+@media screen and (max-width: 550px) {
+    .divider {
+        width: 259px;
+        white-space: nowrap; 
+        overflow: hidden;
+    }
 }
