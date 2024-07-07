@@ -1,4 +1,4 @@
-import './style.css'
+import '../shared.css'
 import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -90,6 +90,18 @@ const About = () => {
           </p>
           <p class="divider">✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
         <h2 class = "body_title" id="models">The Models</h2>
+        <p class = "body_text">
+          After a literature review of over 20 papers, especially <br></br>
+          <a href="https://www.researchgate.net/profile/Abdul-Salam-Shah/publication/307535733_An_Offline_Signature_Verification_Technique_Using_Pixels_Intensity_Levels/links/57c799e308aefc4af34c884c/An-Offline-Signature-Verification-Technique-Using-Pixels-Intensity-Levels.pdf">
+          An offline signature verification technique using pixels intensity levels
+          </a> by Shah et al., and 
+          <br></br>
+          <a href="https://www.sciencedirect.com/science/article/pii/S1877050918320301">
+            Handwritten Signature Forgery Detection using Convolutional Neural Networks
+          </a> by Gideon et al.,
+          we decided to make 3 models: a k-Nearest Neighbours, a Decision Tree
+          and a Convolutional Neural Network.
+        </p>
         <h3 id="knn"> k-Nearest Neighbours Model</h3>
         <p class = "body_text">By Steven Lin</p>
         <h4>Model Parameters</h4>

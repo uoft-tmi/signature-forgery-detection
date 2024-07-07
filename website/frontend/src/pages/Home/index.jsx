@@ -1,4 +1,4 @@
-import './style.css'
+import '../shared.css'
 import Checkbox from "./Checkbox";
 import { Models } from "./models";
 import { useState, useRef, useEffect } from 'react';
@@ -138,81 +138,82 @@ const Home = () => {
         <main>
             <div className="incontainer">
                 <div className = "body_gradient">
-                <h1>Sign of the Times</h1>
-                <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
-                <p id='intro'>Intro</p>
-                <video width="720" height="480" controls>
-                    <source src="" type="video/mp4"></source>
-                    Your browser does not support the video tag.
-                </video>
-                <button type = "button" className="button" id="try" onClick={handleClickScroll}>Try it out!</button>
-                </div>
-                <div id='jump' ref={scrollRef}>
-                    <div id='left-div'>
-                        <div
-                            id='preview-container'
-                            onDragOver={handleDragOver}
-                            onDrop={handleDrop}
-                            onClick={openFileInput}>
-                            {previewImage ? 
-                            (
-                                <img src={previewImage} id='preview' alt='Preview'></img>
-                            ) :
-                            (
-                                <>
-                                    <div id='dragndrop-container'>
-                                        <img src='drag-and-drop-icon.png' alt='Drag and drop' id='dragndrop-image'></img>
-                                    </div>
-                                    <p id='dragndrop'>Drag & Drop or Browse</p>
-                                </>
-                            )}
-                            <input 
-                                type='file' 
-                                style={{display: 'none'}}
-                                onChange={handleFileChange}
-                                ref={hiddenFileInput}></input>
-                        </div>
-                        <button type = "button" class = "button">Validate</button>
-                    </div>
-                    <div id='right-div'>
-                        <p>Upload an image of a signature and click the models you want to try</p>
-                        <div id='checkboxes-container'>
-                            <div className='checkbox-container'>
-                                <Checkbox 
-                                type = "checkbox"
-                                name = "selectAll"
-                                id = "selectAll"
-                                handleClick = {handleSelectAll}
-                                isChecked = {isCheckAll}
-                                />
-                                Select All
+                    <h1>Sign of the Times</h1>
+                    <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
+                    <p id='intro'>Intro</p>
+                    <video width="720" height="480" controls>
+                        <source src="" type="video/mp4"></source>
+                        Your browser does not support the video tag.
+                    </video>
+                    <button type = "button" className="button" id="try" onClick={handleClickScroll}>Try it out!</button>
+                    <div id='jump' ref={scrollRef}>
+                        <div id='left-div'>
+                            <div
+                                id='preview-container'
+                                onDragOver={handleDragOver}
+                                onDrop={handleDrop}
+                                onClick={openFileInput}>
+                                {previewImage ? 
+                                (
+                                    <img src={previewImage} id='preview' alt='Preview'></img>
+                                ) :
+                                (
+                                    <>
+                                        <div id='dragndrop-container'>
+                                            <img src='drag-and-drop-icon.png' alt='Drag and drop' id='dragndrop-image'></img>
+                                        </div>
+                                        <p id='dragndrop'>Drag & Drop or Browse</p>
+                                    </>
+                                )}
+                                <input 
+                                    type='file' 
+                                    style={{display: 'none'}}
+                                    onChange={handleFileChange}
+                                    ref={hiddenFileInput}></input>
                             </div>
-                            {options}
-                            {isButtonClicked && (
-                            <table>
-                                <thead>
-                                    <tr>
-                                        {columns.filter(column => column.visible).map(column => (
-                                            <th key={column.key}>{column.label}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {/* Map through table data and render rows dynamically */}
-                                    {tableData.map(row => (
-                                        <tr key={row.id}>
-                                            {columns
-                                                .filter(column => column.visible)
-                                                .map(column => (
-                                                    <td key={column.key}>{row[column.key]}</td>
-                                                ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                            )}
+                            <button type = "button" class = "button">Validate</button>
                         </div>
-                        <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link></p>
+                        <div id='right-div'>
+                            <p>Upload an image of a signature and click the models you want to try</p>
+                            <div id='checkboxes-container'>
+                                <div className='checkbox-container'>
+                                    <Checkbox 
+                                    type = "checkbox"
+                                    name = "selectAll"
+                                    id = "selectAll"
+                                    handleClick = {handleSelectAll}
+                                    isChecked = {isCheckAll}
+                                    />
+                                    Select All
+                                </div>
+                                {options}
+                                {isButtonClicked && (
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            {columns.filter(column => column.visible).map(column => (
+                                                <th key={column.key}>{column.label}</th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {/* Map through table data and render rows dynamically */}
+                                        {tableData.map(row => (
+                                            <tr key={row.id}>
+                                                {columns
+                                                    .filter(column => column.visible)
+                                                    .map(column => (
+                                                        <td key={column.key}>{row[column.key]}</td>
+                                                    ))}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                                )}
+                            </div>
+                            <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link></p>
+                    </div>
+
                     </div>
                 </div>
             </div>
