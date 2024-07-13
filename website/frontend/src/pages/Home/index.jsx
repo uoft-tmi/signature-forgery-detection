@@ -46,6 +46,10 @@ const Home = () => {
         setList(Models);
     }, [list]);
 
+    const handleDeleteRow = (id) => {
+        setTableData((prevData) => prevData.filter(row => row.id !== id));
+    };
+
     const handleSelectAll = e => {
         const isChecked = e.target.checked;
         setIsCheckAll(isChecked);
@@ -141,7 +145,15 @@ const Home = () => {
             const isDuplicate = tableData.some(row => row.image === newImageURL);
 
             if (!isDuplicate) {
-                const newRow = {id: tableData.length+1, image: imageURL, state1: JSON.stringify(queryData2), state2: JSON.stringify(queryData), state3: JSON.stringify(queryData), visible:true};
+                const newRow = {
+                    id: tableData.length + 1,
+                    image: imageURL,
+                    state1: JSON.stringify(queryData2),
+                    state2: JSON.stringify(queryData),
+                    state3: JSON.stringify(queryData),
+                    visible: true,
+                    deletable: true  
+                };
                 setTableData(prevData => [...prevData, newRow]);
             }
 
@@ -213,23 +225,29 @@ const Home = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* Map through table data and render rows dynamically */}
-                                    {tableData.map(row => (
-                                        <tr key={row.id}>
-                                            {columns
-                                                .filter(column => column.visible)
-                                                .map(column => (
-                                                    <td key={column.key}>
-                                                        {column.key === 'image' && row[column.key] ? (
-                                                            <img src={row[column.key]} alt="Preview" style={{ width: '100px' }} />
-                                                        ) : (
-                                                            row[column.key]
-                                                        )}
-                                                    </td>
-                                                ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
+    {/* Map through table data and render rows dynamically */}
+    {tableData.map(row => (
+        <tr key={row.id}>
+            {columns
+                .filter(column => column.visible)
+                .map(column => (
+                    <td key={column.key}>
+                        {column.key === 'image' && row[column.key] ? (
+                            <img src={row[column.key]} alt="Preview" style={{ width: '100px' }} />
+                        ) : (
+                            row[column.key]
+                        )}
+                    </td>
+                ))}
+            {/* New column for delete functionality */}
+            {row.deletable && (
+                <td>
+                    <button className="delete-button" onClick={() => handleDeleteRow(row.id)}>X</button>
+                </td>
+            )}
+        </tr>
+    ))}
+</tbody>
                             </table>
                             )}
                         </div>
