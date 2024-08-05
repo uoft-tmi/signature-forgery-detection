@@ -27,8 +27,9 @@ const Home = () => {
     const [columns, setColumns] = useState([
         {key: 'image', label: 'Image', visible: true},
         {key: 'state1', label: 'Model 1', visible: false},
-        {key: 'state2', label: 'Model 2',visible: false},
-        {key: 'state3', label: 'Model 3', visible: false}
+        {key: 'state2', label: 'Model 2', visible: false},
+        {key: 'state3', label: 'Model 3', visible: false},
+        {key: 'delete', label: '', visible: true} // Add this column for the delete button
     ]);
     
     const [isCheckAll, setIsCheckAll] = useState(false);
@@ -36,7 +37,6 @@ const Home = () => {
     const [list, setList] = useState([]);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [imageURL, setImageURL] = useState(null);
-
 
     const [previewImage, setPreviewImage] = useState(null);
     const hiddenFileInput = useRef(null);
@@ -225,29 +225,24 @@ const Home = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-    {/* Map through table data and render rows dynamically */}
-    {tableData.map(row => (
-        <tr key={row.id}>
-            {columns
-                .filter(column => column.visible)
-                .map(column => (
-                    <td key={column.key}>
-                        {column.key === 'image' && row[column.key] ? (
-                            <img src={row[column.key]} alt="Preview" style={{ width: '100px' }} />
-                        ) : (
-                            row[column.key]
-                        )}
-                    </td>
-                ))}
-            {/* New column for delete functionality */}
-            {row.deletable && (
-                <td>
-                    <button className="delete-button" onClick={() => handleDeleteRow(row.id)}>X</button>
-                </td>
-            )}
-        </tr>
-    ))}
-</tbody>
+                                    {tableData.map(row => (
+                                        <tr key={row.id}>
+                                            {columns
+                                                .filter(column => column.visible)
+                                                .map(column => (
+                                                    <td key={column.key}>
+                                                        {column.key === 'image' && row[column.key] ? (
+                                                            <img src={row[column.key]} alt="Preview" style={{ width: '100px'}} />
+                                                        ) : column.key === 'delete' ? (
+                                                            <button className="delete-button" onClick={() => handleDeleteRow(row.id)}>X</button>
+                                                        ) : (
+                                                            row[column.key]
+                                                        )}
+                                                    </td>
+                                                ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </table>
                             )}
                         </div>

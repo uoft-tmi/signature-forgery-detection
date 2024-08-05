@@ -21,6 +21,20 @@ body {
     text-align: center;
 }
 
+.custom-table tbody {
+  background: linear-gradient(to bottom, #F7EFE6, #FFFFFF);
+}
+
+.delete-button {
+  color: black; 
+  background-color: white; 
+  border: 1px solid black; 
+  padding: 2px 7px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  border-radius: 3px; 
+}
+
 .page-container {
     position: relative;
     min-height: 100vh;
