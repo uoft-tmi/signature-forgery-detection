@@ -380,6 +380,7 @@ video {
     justify-content: center;
     align-items: center;
     gap: 1.625rem;
+    padding-left: 2.5%;
 }
 
 #preview {
@@ -408,6 +409,7 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding-right: 2.5%;
 }
 
 #title {

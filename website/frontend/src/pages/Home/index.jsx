@@ -246,47 +246,6 @@ const Home = () => {
                             </table>
                             )}
                         </div>
-                        <div id='right-div'>
-                            <p>Upload an image of a signature and click the models you want to try</p>
-                            <div id='checkboxes-container'>
-                                <div className='checkbox-container'>
-                                    <Checkbox 
-                                    type = "checkbox"
-                                    name = "selectAll"
-                                    id = "selectAll"
-                                    handleClick = {handleSelectAll}
-                                    isChecked = {isCheckAll}
-                                    />
-                                    Select All
-                                </div>
-                                {options}
-                                {isButtonClicked && (
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            {columns.filter(column => column.visible).map(column => (
-                                                <th key={column.key}>{column.label}</th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {/* Map through table data and render rows dynamically */}
-                                        {tableData.map(row => (
-                                            <tr key={row.id}>
-                                                {columns
-                                                    .filter(column => column.visible)
-                                                    .map(column => (
-                                                        <td key={column.key}>{row[column.key]}</td>
-                                                    ))}
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                                )}
-                            </div>
-                            <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link></p>
-                    </div>
-
                     </div>
                 </div>
             </div>
