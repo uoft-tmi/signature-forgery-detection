@@ -3,8 +3,10 @@ import Checkbox from "./Checkbox";
 import { Models } from "./models";
 import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate();
 
     async function query(data) {
         const response = await fetch(
@@ -74,32 +76,36 @@ const Home = () => {
             }
         });
     
-        // Update column visibility based on the checkbox being clicked
         setColumns((prevColumns) => {
             return prevColumns.map((column) => {
                 if (column.key === id) {
-                    // Set the visibility of the clicked column based on the checkbox state
                     return { ...column, visible: checked };
                 } else {
-                    // Maintain the visibility of other columns
                     return column;
                 }
             });
         });
+
+        const selectedModel = Models.find(model => model.id === id);
+        if (selectedModel && checked) {
+            navigate(selectedModel.link);
+        }
     };
 
-    const options = list.map(({id, name}) => {
+    const options = list.map(({ id, name, link }) => {
         return (
-            <div key = {id} className='checkbox-container'>
+            <div key={id} className='checkbox-container'>
                 <Checkbox
-                key = {id}
-                type = "checkbox"
-                name = {name}
-                id = {id}
-                handleClick = {handleClick}
-                isChecked = {isCheck.includes(id)}
-            />
-            <label htmlFor={id}>{name}</label>
+                    key={id}
+                    type="checkbox"
+                    name={name}
+                    id={id}
+                    handleClick={handleClick}
+                    isChecked={isCheck.includes(id)}
+                />
+                <label htmlFor={id}>
+                    <Link className="model-link" to={link}>{name}</Link>
+                </label>
             </div>
         );
     });
@@ -246,6 +252,7 @@ const Home = () => {
                             </table>
                             )}
                         </div>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link></p>
                     </div>
                 </div>
             </div>
