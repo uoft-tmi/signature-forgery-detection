@@ -25,6 +25,7 @@ Python 3.10 is required.
 
 ## Credits
 
-This project was made by Dian Rong, Evelyn Phan, Angela Zhuo, 
-Steven Lin, Dorothy Lee, and Puneet Kaur as a part of the 
+This project was made by Puneet Kaur, Steven Lin, Dorothy Lee, 
+Evelyn Phan, Dian Rong, and Angela Zhuo, 
+as a part of the 
 University of Toronto's Truthworthy Machine Intelligence club.
