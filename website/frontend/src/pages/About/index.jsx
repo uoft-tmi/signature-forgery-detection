@@ -36,6 +36,7 @@ const About = () => {
                 <li><Link to="#decision-tree">Decision Tree</Link> by Dorothy Lee</li>
                 <li><Link to="#cnn">Convolutional Neural Network</Link> by Puneet Kaur</li>
               </ol>
+              <li><Link to="#references">Reference List</Link></li>
             </ol>
           </p>
           <p class="divider">✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
@@ -103,7 +104,7 @@ const About = () => {
           and a Convolutional Neural Network.
         </p>
         <h3 id="knn"> k-Nearest Neighbours Model</h3>
-        <p class = "body_text">By Steven Lin</p>
+        <p class = "author">By Steven Lin</p>
         <h4>Model Parameters</h4>
         <p class = "body_text">
           This model has 1 hyperparameter, k, which is the number of neighbouring 
@@ -131,7 +132,7 @@ const About = () => {
         </p>
         <p class="divider">───── ⋆⋅☆⋅⋆ ─────</p>
         <h3 id="decision-tree"> Decision Tree Classifier</h3>
-        <p class = "body_text">By Dorothy Lee</p>
+        <p class = "author">By Dorothy Lee</p>
         <h4>Model Parameters</h4>
         <p class = "body_text">
         The general model is fitted with criterion, mins_samples_leaf, min_samples_split, 
@@ -254,7 +255,7 @@ const About = () => {
 
         <p class="divider">───── ⋆⋅☆⋅⋆ ─────</p>
         <h3 id="cnn"> CNN Model</h3>
-        <p class = "body_text">By Puneet Kaur</p>
+        <p class = "author">By Puneet Kaur</p>
         <h4>Architecture</h4>
         <p class = "body_text">
         The CNN model comprises three convolutional layers with 32, 64, and 128 filters 
@@ -293,6 +294,34 @@ const About = () => {
             </p>
           </div>
         </div>
+        <p class="divider">✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦ . 　⁺ 　 . ✦</p>
+        <h2 class ="body_title" id="references"> Reference List</h2>
+        <p class="references_list">
+          <ul>
+            <li>
+                Ghanim, T. M., & Nabil, A. M. (2018, December). 
+                Offline signature verification and forgery detection approach.  
+                <p class="italics"> 2018 13th international conference on computer engineering and systems (ICCES) 
+                  </p>
+                (pp. 293-298). IEEE.
+            </li>
+            <li>
+                Shah, A. S., Khan, M. N. A., Subhan, F., Fayaz, M., & Shah, A. (2016). 
+                An offline signature verification technique using pixels intensity levels. <p class="italics"> International Journal of Signal Processing, 
+                Image Processing and Pattern Recognition, 
+                9</p>(8), 205-222.
+            </li>
+            <li>
+              Poddar, J., Parikh, V., & Bharti, S. K. (2020). 
+              Offline signature recognition and forgery detection using deep learning.
+              <p class="italics"> Procedia Computer Science, 170, </p> 610-617
+            </li>
+            <li>
+              Mshir, S., & Kaya, M. (2020, June). Signature recognition using machine learning.
+              <p class="italics"> 2020 8th International Symposium on Digital Forensics and Security (ISDFS)</p>(pp. 1-4). IEEE.
+            </li>
+          </ul>
+        </p>
         </div>
       </div>
     </main>

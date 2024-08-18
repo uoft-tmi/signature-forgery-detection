@@ -88,12 +88,13 @@ h2 {
 }
 
 h3 {
-    color: #7743DB;
+    color: #542e9a;
     font-size: 2rem;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     margin-bottom: 1rem;
     margin-right: 2rem;
     margin-left: 2rem;
+    text-align: center;
 }
 
 h4 {
@@ -126,8 +127,10 @@ ol ol {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    margin-left: 10%;
+    margin-right: 10%;
     color: #494759;
 }
 
@@ -142,6 +145,12 @@ video {
     margin-bottom: 1.563rem;
 }
 
+.author {
+    text-align: center;
+    font-size: 20px;
+    color: #584684;
+}
+
 /* gradient for about page Process subsection */
 .body_gradient {
     background-image: linear-gradient(#f7efe5, white);
@@ -150,18 +159,15 @@ video {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 4rem;
+    margin-bottom: 14rem;
     padding-bottom: 48px;
 }
 
 /* about page paragraph text */
 .body_text {
     color: #494759;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 1.5rem;
-    /* margin-bottom: 10rem; */
     font-weight: 600;
+    width: 80%;
 }
 
 /* about page subtitles */
@@ -234,11 +240,6 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 3rem;
-}
-
-.cnn-stat-item + .cnn-stat-item {
-    margin-bottom: 5rem;
 }
 
 .current-link {
@@ -278,11 +279,22 @@ video {
     padding-right: 0rem;
 }
 
+.italics {
+    font-style: italic;
+    font-size: 1.125rem;
+    display: inline;
+    margin: 0;
+}
+
 .page-container {
     position: relative;
     min-height: 100vh;
     width: 100%;
     margin: 0;
+ }
+
+ .references_list {
+    font-size: 1.125rem;
  }
 
 .textmargin {
@@ -366,6 +378,10 @@ video {
     align-items: center;
 }
 
+#references {
+    margin-bottom: 3rem;
+}
+
 #right {
     margin-right: 1.5rem;
 }
@@ -431,6 +447,10 @@ video {
 }
 
 @media screen and (max-width: 700px) {
+    .body_title {
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
     .cnn-stats {
         grid-template-columns: 1fr;
     }
@@ -462,6 +482,11 @@ video {
 
     .body_gradient {
         margin-top: 2rem;
+    }
+
+    .body_title {
+        padding-top: 2rem;
+        margin-top: 1rem;
     }
 
     .divider {
