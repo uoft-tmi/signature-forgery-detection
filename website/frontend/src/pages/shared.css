@@ -476,6 +476,15 @@ video {
       margin-bottom: 4rem;
 }
 
+.model-link {
+    color: #494759;
+    text-decoration: none;
+}
+
+.model-link:hover {
+    color: #7743DB;
+}
+
 @media screen and (max-width: 1100px) {
     #jump {
         flex-direction: column-reverse;

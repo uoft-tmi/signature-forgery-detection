@@ -3,9 +3,14 @@ import Checkbox from "./Checkbox";
 import { Models } from "./models";
 import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { FaInfoCircle } from 'react-icons/fa';
+=======
+import { useNavigate } from 'react-router-dom';
+>>>>>>> c28badb050c6f089c1c29ea494026040a97f0266
 
 const Home = () => {
+    const navigate = useNavigate();
 
     async function query(data) {
         const response = await fetch(
@@ -84,6 +89,11 @@ const Home = () => {
                 }
             });
         });
+
+        const selectedModel = Models.find(model => model.id === id);
+        if (selectedModel && checked) {
+            navigate(selectedModel.link);
+        }
     };
 
     const options = list.map(({id, name, description}) => {
