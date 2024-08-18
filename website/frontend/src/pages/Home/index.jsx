@@ -3,11 +3,8 @@ import Checkbox from "./Checkbox";
 import { Models } from "./models";
 import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import { FaInfoCircle } from 'react-icons/fa';
-=======
 import { useNavigate } from 'react-router-dom';
->>>>>>> c28badb050c6f089c1c29ea494026040a97f0266
 
 const Home = () => {
     const navigate = useNavigate();
