@@ -3,6 +3,7 @@ import Checkbox from "./Checkbox";
 import { Models } from "./models";
 import { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { FaInfoCircle } from 'react-icons/fa';
 
 const Home = () => {
 
@@ -26,10 +27,10 @@ const Home = () => {
     
     const [columns, setColumns] = useState([
         {key: 'image', label: 'Image', visible: true},
-        {key: 'state1', label: 'Model 1', visible: false},
-        {key: 'state2', label: 'Model 2', visible: false},
-        {key: 'state3', label: 'Model 3', visible: false},
-        {key: 'delete', label: '', visible: true} // Add this column for the delete button
+        {key: 'state1', label: 'k-Nearest Neighbours', visible: false},
+        {key: 'state2', label: 'Decision Tree', visible: false},
+        {key: 'state3', label: 'Convolutional Neural Network', visible: false},
+        {key: 'delete', label: '', visible: true} 
     ]);
     
     const [isCheckAll, setIsCheckAll] = useState(false);
@@ -74,32 +75,34 @@ const Home = () => {
             }
         });
     
-        // Update column visibility based on the checkbox being clicked
         setColumns((prevColumns) => {
             return prevColumns.map((column) => {
                 if (column.key === id) {
-                    // Set the visibility of the clicked column based on the checkbox state
                     return { ...column, visible: checked };
                 } else {
-                    // Maintain the visibility of other columns
                     return column;
                 }
             });
         });
     };
 
-    const options = list.map(({id, name}) => {
+    const options = list.map(({id, name, description}) => {
         return (
-            <div key = {id} className='checkbox-container'>
+            <div key={id} className='checkbox-container'>
                 <Checkbox
-                key = {id}
-                type = "checkbox"
-                name = {name}
-                id = {id}
-                handleClick = {handleClick}
-                isChecked = {isCheck.includes(id)}
-            />
-            <label htmlFor={id}>{name}</label>
+                    key={id}
+                    type="checkbox"
+                    name={name}
+                    id={id}
+                    handleClick={handleClick}
+                    isChecked={isCheck.includes(id)}
+                />
+                <label htmlFor={id}>{name}</label>
+                {/* Tooltip Icon */}
+                <span className="tooltip-icon">
+                    <FaInfoCircle className="custom-info-icon" />
+                    <span className="tooltip-text" dangerouslySetInnerHTML={{ __html: description }} />
+                </span>
             </div>
         );
     });
@@ -246,6 +249,7 @@ const Home = () => {
                             </table>
                             )}
                         </div>
+                        <p className = "textmargin">For more information about the models, click <Link to = "/about#models">here</Link>.</p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,52 @@
+.tooltip-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.custom-info-icon {
+    color: white; 
+    background-color: #494759; 
+    border-radius: 50%; 
+    padding: 1.5px;
+    border: 2px solid white;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.5;
+    
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 400px; 
+    background-color: #F7EFE6;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; 
+    left: 50%;
+    margin-left: -100px; 
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    color: #494759;
+}
+
+.tooltip-icon:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s; 
+}
+
+.tooltip-text:hover {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s; 
+}
+
 a {
     color: #7743DB;
 }
@@ -243,6 +292,12 @@ video {
     flex-direction: row;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-left: 0.5rem; 
+    line-height: 1.5;
+}
+
+.checkbox-container input[type="checkbox"] {
+    vertical-align: middle;
 }
 
 .checkboxes {
