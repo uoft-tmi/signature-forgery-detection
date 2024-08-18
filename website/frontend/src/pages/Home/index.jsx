@@ -138,9 +138,8 @@ const Home = () => {
         <main>
             <div className="incontainer">
                 <div className = "body_gradient">
-                    <h1>Sign of the Times</h1>
+                    <h1 className="body_title">Sign of the Times</h1>
                     <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
-                    <p id='intro'>Intro</p>
                     <video width="720" height="480" controls>
                         <source src="" type="video/mp4"></source>
                         Your browser does not support the video tag.
