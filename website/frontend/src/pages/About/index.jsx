@@ -301,24 +301,24 @@ const About = () => {
             <li>
                 Ghanim, T. M., & Nabil, A. M. (2018, December). 
                 Offline signature verification and forgery detection approach.  
-                <p class="italics"> 2018 13th international conference on computer engineering and systems (ICCES) 
-                  </p>
+                <i> 2018 13th international conference on computer engineering and systems (ICCES) 
+                  </i>
                 (pp. 293-298). IEEE.
             </li>
             <li>
                 Shah, A. S., Khan, M. N. A., Subhan, F., Fayaz, M., & Shah, A. (2016). 
-                An offline signature verification technique using pixels intensity levels. <p class="italics"> International Journal of Signal Processing, 
+                An offline signature verification technique using pixels intensity levels. <i> International Journal of Signal Processing, 
                 Image Processing and Pattern Recognition, 
-                9</p>(8), 205-222.
+                9</i>(8), 205-222.
             </li>
             <li>
               Poddar, J., Parikh, V., & Bharti, S. K. (2020). 
               Offline signature recognition and forgery detection using deep learning.
-              <p class="italics"> Procedia Computer Science, 170, </p> 610-617
+              <i> Procedia Computer Science, 170, </i> 610-617
             </li>
             <li>
               Mshir, S., & Kaya, M. (2020, June). Signature recognition using machine learning.
-              <p class="italics"> 2020 8th International Symposium on Digital Forensics and Security (ISDFS)</p>(pp. 1-4). IEEE.
+              <i> 2020 8th International Symposium on Digital Forensics and Security (ISDFS)</i>(pp. 1-4). IEEE.
             </li>
           </ul>
         </p>

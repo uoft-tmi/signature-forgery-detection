@@ -164,9 +164,9 @@ video {
 }
 
 /* about page paragraph text */
-.body_text {
+.body_text, .references_list {
     color: #494759;
-    font-weight: 600;
+    font-weight: 500;
     width: 80%;
 }
 
