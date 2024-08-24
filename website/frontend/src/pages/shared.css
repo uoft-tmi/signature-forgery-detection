@@ -376,6 +376,8 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 #references {
@@ -391,6 +393,7 @@ video {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-align: center;
 }
 
 #title {
@@ -402,7 +405,7 @@ video {
       margin-bottom: 4rem;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
     #jump {
         flex-direction: column-reverse;
     }
