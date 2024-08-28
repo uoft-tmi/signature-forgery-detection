@@ -139,6 +139,11 @@ const Home = () => {
             <div className="incontainer">
                 <div className = "body_gradient">
                     <h1 className="body_title">Sign of the Times</h1>
+
+                    <div className="loading">
+                        loading
+                    </div>
+
                     <h2 id='title'>Detecting Forged Signatures with Machine Learning</h2>
                     <video width="720" height="480" controls>
                         <source src="" type="video/mp4"></source>
