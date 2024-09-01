@@ -28,8 +28,10 @@ class PredictView(APIView):
                 image = reg_img
             elif name == 'KNN':
                 pca = models['PCA']  # Retrieve PCA for KNN
-                image = image.reshape(image.shape[0], -1)  # Flatten if necessary
+                image = tree_img.reshape(tree_img.shape[0], -1)  # Flatten if necessary
                 image = pca.transform(image)  # Apply PCA transformation
+            elif name == 'PCA':
+                continue
             else:
                 image = tree_img
             predictions[name] = models[name].predict(image)
