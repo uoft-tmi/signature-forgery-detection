@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from .load_models import ModelLoader
 import json
 from .preprocessing import preprocess
+import numpy as np
 
 
 class PredictView(APIView):
@@ -17,6 +18,7 @@ class PredictView(APIView):
             models['Decision Tree'] = ModelLoader.get_decision_tree()
         if 2 in model_indices:
             models['KNN'] = ModelLoader.get_knn()
+            models['PCA'] = ModelLoader.get_pca()
         if 3 in model_indices:
             models['CNN'] = ModelLoader.get_cnn()
         
@@ -24,6 +26,10 @@ class PredictView(APIView):
         for name in models:
             if name == "CNN":
                 image = reg_img
+            elif name == 'KNN':
+                pca = models['PCA']  # Retrieve PCA for KNN
+                image = image.reshape(image.shape[0], -1)  # Flatten if necessary
+                image = pca.transform(image)  # Apply PCA transformation
             else:
                 image = tree_img
             predictions[name] = models[name].predict(image)
