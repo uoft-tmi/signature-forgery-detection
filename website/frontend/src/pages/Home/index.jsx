@@ -27,7 +27,8 @@ const Home = () => {
     const [columns, setColumns] = useState([
         {key: 'image', label: 'Image', visible: true},
         {key: 'state1', label: 'Model 1', visible: false},
-        {key: 'state2', label: 'Model 2',visible: false}
+        {key: 'state2', label: 'Model 2',visible: false},
+        {key: 'state3', label: 'Model 3',visible: false}
     ]);
     
     const [isCheckAll, setIsCheckAll] = useState(false);
