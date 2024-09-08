@@ -1,14 +1,14 @@
 export const Models = [
     {
-      id: "state1",
+      id: "decisionTree",
       name: "Decision Tree"
     },
     {
-      id: "state2",
+      id: "knn",
       name: "KNN"
     },
     {
-      id: "state3",
+      id: "cnn",
       name: "CNN"
     }
   ];

@@ -1,14 +1,14 @@
 import '../shared.css';
 import Checkbox from "./Checkbox";
 import { Models } from "./models";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useMemo, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const Home = () => {
     const modelMapping = {
-        "Decision Tree": 1,
-        "KNN": 2,
-        "CNN": 3
+        "decisionTree": 1,
+        "knn": 2,
+        "cnn": 3
     };  
 
     const [tableData, setTableData] = useState([]);
@@ -21,17 +21,12 @@ const Home = () => {
     
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
-    const [list, setList] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);  // Store the file for uploading
+    const [previewImage, setPreviewImage] = useState(null);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-    const [previewImage, setPreviewImage] = useState(null);
-    const [selectedFile, setSelectedFile] = useState(null);  // Store the file for uploading
     const hiddenFileInput = useRef(null);
     const scrollRef = useRef(null);
-
-    useEffect(() => {
-        setList(Models);
-    }, [list]);
 
     async function query(formData) {
         try {
@@ -53,63 +48,38 @@ const Home = () => {
             console.error("Error during API request:", error);
             return null;
         }
-    }  
+    }
 
-    const handleSelectAll = e => {
+    const handleSelectAll = (e) => {
         const isChecked = e.target.checked;
-        setIsCheckAll(isChecked);
-        setIsCheck(isChecked ? list.map(li => li.name) : []);
 
-        setColumns(prevColumns => {
-            return prevColumns.map((column, index) => {
-                if (index === 0) return column;
-                return { ...column, visible: isChecked };
-            });
-        });
+        setIsCheckAll(isChecked);
+        setIsCheck(isChecked ? Models.map(model => model.id) : []);
+
+        setColumns(prevColumns => prevColumns.map(column =>
+            column.key !== 'image' ? { ...column, visible: isChecked } : column
+        ));
     };
 
     const handleClick = (e) => {
         const { id, checked } = e.target;
-    
-        setIsCheck((prevCheck) => {
-            if (checked) {
-                return [...prevCheck, id];
-            } else {
-                return prevCheck.filter((item) => item !== id);
-            }
-        });
-    
-        setColumns((prevColumns) => {
-            return prevColumns.map((column) => {
-                if (column.key.toLowerCase() === id.toLowerCase()) {
-                    return { ...column, visible: checked };
-                } else {
-                    return column;
-                }
-            });
-        });
-    };
 
-    const options = list.map(({ id, name }) => {
-        return (
-            <div key={id} className='checkbox-container'>
-                <Checkbox
-                    key={id}
-                    type="checkbox"
-                    name={name}
-                    id={name}
-                    handleClick={handleClick}
-                    isChecked={isCheck.includes(name)}
-                />
-                <label htmlFor={name}>{name}</label>
-            </div>
+        setIsCheck(prevCheck => checked
+            ? [...prevCheck, id]
+            : prevCheck.filter(item => item !== id)
         );
-    });
+    
+        setColumns(prevColumns => prevColumns.map(column =>
+            column.key.toLowerCase() === id.toLowerCase()
+                ? { ...column, visible: checked }
+                : column
+        ));
+    };
 
     const handleDragOver = (event) => {
         event.preventDefault();
     }
-  
+
     const handleDrop = (event) => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
@@ -143,7 +113,7 @@ const Home = () => {
 
         setIsButtonClicked(true);
 
-        const selectedModels = isCheck.map(model => modelMapping[model]); // Get the model numbers
+        const selectedModels = isCheck.map(id => modelMapping[id]); // Get the model numbers
         const selectedModelsJSON = JSON.stringify(selectedModels);
     
         const formData = new FormData();
@@ -172,6 +142,22 @@ const Home = () => {
             setTableData(prevData => [...prevData, newRow]);
         }
     };
+
+    // Calculate options dynamically based on modelList and isCheck
+    const options = useMemo(() => {
+        return Models.map(({ id, name }) => (
+            <div key={`${id}-container`} className='checkbox-container'>
+                <Checkbox
+                    type="checkbox"
+                    name={name}
+                    id={id}
+                    handleClick={handleClick}
+                    isChecked={isCheck.includes(id)}
+                />
+                <label htmlFor={id}>{name}</label>
+            </div>
+        ));
+    }, [isCheck]);
 
     return (
         <>
@@ -232,7 +218,7 @@ const Home = () => {
                                             <thead>
                                                 <tr>
                                                     {columns.filter(column => column.visible).map(column => (
-                                                        <th key={column.key}>{column.label}</th>
+                                                        <th key={`${column.key}-row`}>{column.label}</th>
                                                     ))}
                                                 </tr>
                                             </thead>
