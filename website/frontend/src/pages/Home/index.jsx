@@ -21,8 +21,10 @@ const Home = () => {
     
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);  // Store the file for uploading
     const [previewImage, setPreviewImage] = useState(null);
+    const [error, setError] = useState(null);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     const hiddenFileInput = useRef(null);
@@ -30,6 +32,7 @@ const Home = () => {
 
     async function query(formData) {
         try {
+            setIsLoading(true)
             const response = await fetch(
                 "http://ec2-3-145-78-113.us-east-2.compute.amazonaws.com/sfmodels/predict/",
                 {
@@ -37,15 +40,18 @@ const Home = () => {
                     body: formData,
                 }
             );
-    
+            setIsLoading(false);
             if (!response.ok) {
+                setError("Oops, something went wrong");
                 throw new Error(`API request failed with status ${response.status}`);
             }
     
             const result = await response.json();
             return result;
         } catch (error) {
+            setIsLoading(false);
             console.error("Error during API request:", error);
+            setError("Oops, something went wrong. Maybe you should try running this locally :)");
             return null;
         }
     }
@@ -197,7 +203,13 @@ const Home = () => {
                                         ref={hiddenFileInput}
                                     />
                                 </div>
+                                {isLoading ?
+                                        <div className="loading">
+                                            loading
+                                        </div> : null
+                                    }
                                 <button type="button" className="button" onClick={handleValidate}>Validate</button>
+                                <p className='error'>{error}</p>
                             </div>
                             <div id='right-div'>
                                 <p>Upload an image of a signature and click the models you want to try</p>
@@ -213,6 +225,7 @@ const Home = () => {
                                         Select All
                                     </div>
                                     {options}
+                            
                                     {isButtonClicked && (
                                         <table>
                                             <thead>
