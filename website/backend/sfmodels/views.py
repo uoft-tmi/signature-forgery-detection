@@ -4,11 +4,8 @@ from .load_models import ModelLoader
 import json
 from .preprocessing import preprocess
 import numpy as np
-from django.utils.decorators import method_decorator
-from django_ratelimit.decorators import ratelimit
 
 
-@method_decorator(ratelimit(key='ip', rate='50/m', method='POST', block=True), name='dispatch')
 class PredictView(APIView):
     def post(self, request, *args, **kwargs):
         file = request.FILES['file']
