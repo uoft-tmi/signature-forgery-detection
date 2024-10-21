@@ -10,6 +10,7 @@ class ModelLoader:
     _decision_tree = None
     _knn = None
     _cnn = None
+    _pca = None
 
     @classmethod
     def get_decision_tree(cls):
@@ -20,7 +21,10 @@ class ModelLoader:
     @classmethod
     def get_knn(cls):
         if cls._knn is None:
-            cls._knn = joblib.load(KNN_MODEL_PATH)
+            with open(KNN_MODEL_PATH, 'rb') as model_file:
+                data = joblib.load(model_file)
+                cls._knn = data['model']
+                cls._pca = data['pca']
         return cls._knn
     
     @classmethod
@@ -28,3 +32,12 @@ class ModelLoader:
         if cls._cnn is None:
             cls._cnn = load_model(CNN_MODEL_PATH)
         return cls._cnn
+
+    @classmethod
+    def get_pca(cls):
+        if cls._pca is None:
+            with open(KNN_MODEL_PATH, 'rb') as model_file:
+                data = joblib.load(model_file)
+                cls._pca = data['pca']
+        return cls._pca
+    
